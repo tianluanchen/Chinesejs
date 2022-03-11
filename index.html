@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinesejs测试网页 - Ayouth的开源小项目</title>
+    <style>
+        :root {
+            --custom-white: rgb(215, 215, 215);
+        }
+
+        * {
+            font-family: Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: var(--custom-white, rgb(215, 215, 215));
+            border: none;
+            outline: none;
+            letter-spacing: 1px;
+        }
+
+        body {
+            font-size: 16px;
+            background-color: #282c35;
+        }
+
+        main {
+            margin: 40px auto;
+            width: 85%;
+        }
+
+        h1,
+        h2 {
+            display: block;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin: 20px;
+        }
+
+        h2 {
+            margin: 10px;
+            font-size: 1.4rem;
+        }
+
+        h2.author {
+            text-align: right;
+        }
+
+        article {
+            display: block;
+            word-break: break-all;
+            white-space: break-spaces;
+            text-indent: 2em;
+            line-height: 1.5em;
+        }
+
+        a {
+            --color: rgb(70, 138, 226);
+            color: var(--color, rgb(57, 121, 206));
+            text-decoration: underline;
+            background: inherit;
+            transition: 0.2s;
+        }
+
+        a:hover {
+            color: inherit;
+            background-color: var(--color, rgb(57, 121, 206));
+        }
+
+        .btn {
+            min-width: 70px;
+            height: 42px;
+            line-height: 42px;
+            padding: 0 15px;
+            width: fit-content;
+            text-align: center;
+            display: block;
+            background-color: #0d6efd;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            margin: 20px auto;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.514);
+        }
+
+        textarea {
+            padding: 10px;
+            margin: 20px auto;
+            display: block;
+            color: #282c35;
+            width: 90%;
+            background-color: var(--custom-white);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1><a href="https://github.com/tianluanchen/Chinesejs">Chinesejs</a> 网页测试</h1>
+        <h2 class="author">作者：<a href="https://github.com/tianluanchen">Ayouth</a></h2>
+        <textarea name="" id="" rows="6">输入任意繁简体中文进行转换</textarea>
+        <button class="btn" id="trans">繁简体转换</button>
+        <h2>一篇作文演示DOM内容转换</h2>
+        <article>
+            今天天气很热，我和安妮放学回家，热的背颊汗流。我们都带了钱，安妮说：天这么热，我们去哪个小店买个雪糕吧!我同意了。我们跑到商店里，每人买了根雪糕。我买完雪糕，突然看见了一把漂亮的扇子。　　啊!安妮也发现啦!于是，我们又挑了一把自己喜欢的扇子。交完钱，我们一边扇着扇子，一边舔着雪糕，向家走去。太阳火辣辣的顶在头上，终于到家了!我把扇子随便一扔，写作业去了。
+            后来，我找不到我那漂亮的扇子了。唉!真后悔。
+            因为有梦，她选择永不言弃，她选择坚持不懈，她选择奔跑向前。
+            她，也就是我，又一次仰望着深远的天空，面对着初升的红日，大声地喊出：“成长因有梦而精彩。”
+        </article>
+    </main>
+    <script src="./Chinese.min.js"></script>
+    <script>
+        // 自动翻译网页至浏览器中文语言
+        Chinesejs.autoTransalte();
+        var t=1;
+        document.querySelector('#trans').onclick=function(){
+            if(t==1){
+                Chinesejs.transDomToTraditional();
+                t=2;
+            }else{
+                t=1;
+                Chinesejs.transDomToSimple();
+            }
+        }
+    </script>
+</body>
+
+</html>
