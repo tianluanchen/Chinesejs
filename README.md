@@ -1,11 +1,13 @@
 # Chinesejs
 
+![https://github.com/tianluanchen/Chinesejs/blob/main/LICENSE](https://img.shields.io/github/license/tianluanchen/Chinesejs?style=flat-square)
+
 网页繁简体转换JavaScript小组件
 
 ## 介绍
 
 一个网页繁简体转换JavaScript小组件
-[在线演示]()
+[在线演示](https://tianluanchen.github.io/Chinesejs/)
 
 ## 使用
 
@@ -32,6 +34,11 @@ Chinesejs.transDomToSimple().then(function(r){
 })
 //转繁体 返回修改的字符数和获取的TextNode数
 Chinesejs.transDomToTraditional().then(function(r){
+    console.log(r) 
+    // Object { nodesCount: ... , charsCount: ... }
+})
+//自动转换至浏览器所属的语言 自动打印出执行时间
+Chinesejs.autoTranslate().then(function(r){
     console.log(r) 
     // Object { nodesCount: ... , charsCount: ... }
 })

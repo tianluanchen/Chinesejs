@@ -5,15 +5,21 @@
  * @FilePath     :  Chinese.js
  * @Description  :  繁简体相互转换
  * Copyright (c) 2022 by Ayouth, All Rights Reserved. 
+ * GitHub   https://github.com/tianluanchen/Chinesejs
  */
 ; !function (global, factory) {
     global.Chinesejs = factory();
+    global.Clang = global.Chinesejs;
+    Clang.toLocaleString=function(){
+        var str="Author: Ayouth\nGitHub: https://github.com/tianluanchen/Chinesejs\n";
+        console.log(str);    
+    };
 }(self || window, function () {
     var simpleChinese = function () {
-        return '锕皑蔼碍爱嗳嫒瑷暧霭谙铵鹌肮袄奥媪骜鳌坝罢钯摆败呗颁办绊钣帮绑镑谤剥饱宝报鲍鸨龅辈贝钡狈备惫鹎贲锛绷笔毕毙币闭荜哔滗铋筚跸边编贬变辩辫苄缏笾标骠飑飙镖镳鳔鳖别瘪濒滨宾摈傧缤槟殡膑镔髌鬓饼禀拨钵铂驳饽钹鹁补钸财参蚕残惭惨灿骖黪苍舱仓沧厕侧册测恻层诧锸侪钗搀掺蝉馋谗缠铲产阐颤冁谄谶蒇忏婵骣觇禅镡场尝长偿肠厂畅伥苌怅阊鲳钞车彻砗尘陈衬伧谌榇碜龀撑称惩诚骋枨柽铖铛痴迟驰耻齿炽饬鸱冲冲虫宠铳畴踌筹绸俦帱雠橱厨锄雏础储触处刍绌蹰传钏疮闯创怆锤缍纯鹑绰辍龊辞词赐鹚聪葱囱从丛苁骢枞凑辏蹿窜撺错锉鹾达哒鞑带贷骀绐担单郸掸胆惮诞弹殚赕瘅箪当挡党荡档谠砀裆捣岛祷导盗焘灯邓镫敌涤递缔籴诋谛绨觌镝颠点垫电巅钿癫钓调铫鲷谍叠鲽钉顶锭订铤丢铥东动栋冻岽鸫窦犊独读赌镀渎椟牍笃黩锻断缎簖兑队对怼镦吨顿钝炖趸夺堕铎鹅额讹恶饿谔垩阏轭锇锷鹗颚颛鳄诶儿尔饵贰迩铒鸸鲕发罚阀珐矾钒烦贩饭访纺钫鲂飞诽废费绯镄鲱纷坟奋愤粪偾丰枫锋风疯冯缝讽凤沣肤辐抚辅赋复负讣妇缚凫驸绂绋赙麸鲋鳆钆该钙盖赅杆赶秆赣尴擀绀冈刚钢纲岗戆镐睾诰缟锆搁鸽阁铬个纥镉颍给亘赓绠鲠龚宫巩贡钩沟苟构购够诟缑觏蛊顾诂毂钴锢鸪鹄鹘剐挂鸹掴关观馆惯贯诖掼鹳鳏广犷规归龟闺轨诡贵刽匦刿妫桧鲑鳜辊滚衮绲鲧锅国过埚呙帼椁蝈铪骇韩汉阚绗颉号灏颢阂鹤贺诃阖蛎横轰鸿红黉讧荭闳鲎壶护沪户浒鹕哗华画划话骅桦铧怀坏欢环还缓换唤痪焕涣奂缳锾鲩黄谎鳇挥辉毁贿秽会烩汇讳诲绘诙荟哕浍缋珲晖荤浑诨馄阍获货祸钬镬击机积饥迹讥鸡绩缉极辑级挤几蓟剂济计记际继纪讦诘荠叽哜骥玑觊齑矶羁虿跻霁鲚鲫夹荚颊贾钾价驾郏浃铗镓蛲歼监坚笺间艰缄茧检碱硷拣捡简俭减荐槛鉴践贱见键舰剑饯渐溅涧谏缣戋戬睑鹣笕鲣鞯将浆蒋桨奖讲酱绛缰胶浇骄娇搅铰矫侥脚饺缴绞轿较挢峤鹪鲛阶节洁结诫届疖颌鲒紧锦仅谨进晋烬尽劲荆茎卺荩馑缙赆觐鲸惊经颈静镜径痉竞净刭泾迳弪胫靓纠厩旧阄鸠鹫驹举据锯惧剧讵屦榉飓钜锔窭龃鹃绢锩镌隽觉决绝谲珏钧军骏皲开凯剀垲忾恺铠锴龛闶钪铐颗壳课骒缂轲钶锞颔垦恳龈铿抠库裤喾块侩郐哙脍宽狯髋矿旷况诓诳邝圹纩贶亏岿窥馈溃匮蒉愦聩篑阃锟鲲扩阔蛴蜡腊莱来赖崃徕涞濑赉睐铼癞籁蓝栏拦篮阑兰澜谰揽览懒缆烂滥岚榄斓镧褴琅阆锒捞劳涝唠崂铑铹痨乐鳓镭垒类泪诔缧篱狸离鲤礼丽厉励砾历沥隶俪郦坜苈莅蓠呖逦骊缡枥栎轹砺锂鹂疠粝跞雳鲡鳢俩联莲连镰怜涟帘敛脸链恋炼练蔹奁潋琏殓裢裣鲢粮凉两辆谅魉疗辽镣缭钌鹩猎临邻鳞凛赁蔺廪檩辚躏龄铃灵岭领绫棂蛏鲮馏刘浏骝绺镏鹨龙聋咙笼垄拢陇茏泷珑栊胧砻楼娄搂篓偻蒌喽嵝镂瘘耧蝼髅芦卢颅庐炉掳卤虏鲁赂禄录陆垆撸噜闾泸渌栌橹轳辂辘氇胪鸬鹭舻鲈峦挛孪滦乱脔娈栾鸾銮抡轮伦仑沦纶论囵萝罗逻锣箩骡骆络荦猡泺椤脶镙驴吕铝侣屡缕虑滤绿榈褛锊呒妈玛码蚂马骂吗唛嬷杩买麦卖迈脉劢瞒馒蛮满谩缦镘颡鳗猫锚铆贸麽没镁门闷们扪焖懑钔锰梦眯谜弥觅幂芈谧猕祢绵缅渑腼黾庙缈缪灭悯闽闵缗鸣铭谬谟蓦馍殁镆谋亩钼呐钠纳难挠脑恼闹铙讷馁内拟腻铌鲵撵辇鲶酿鸟茑袅聂啮镊镍陧蘖嗫颟蹑柠狞宁拧泞苎咛聍钮纽脓浓农侬哝驽钕诺傩疟欧鸥殴呕沤讴怄瓯盘蹒庞抛疱赔辔喷鹏纰罴铍骗谝骈飘缥频贫嫔苹凭评泼颇钋扑铺朴谱镤镨栖脐齐骑岂启气弃讫蕲骐绮桤碛颀颃鳍牵钎铅迁签谦钱钳潜浅谴堑佥荨悭骞缱椠钤枪呛墙蔷强抢嫱樯戗炝锖锵镪羟跄锹桥乔侨翘窍诮谯荞缲硗跷窃惬锲箧钦亲寝锓轻氢倾顷请庆揿鲭琼穷茕蛱巯赇虮鳅趋区躯驱龋诎岖阒觑鸲颧权劝诠绻辁铨却鹊确阕阙悫让饶扰绕荛娆桡热韧认纫饪轫荣绒嵘蝾缛铷颦软锐蚬闰润洒萨飒鳃赛伞毵糁丧骚扫缫涩啬铯穑杀刹纱铩鲨筛晒酾删闪陕赡缮讪姗骟钐鳝墒伤赏垧殇觞烧绍赊摄慑设厍滠畲绅审婶肾渗诜谂渖声绳胜师狮湿诗时蚀实识驶势适释饰视试谥埘莳弑轼贳铈鲥寿兽绶枢输书赎属术树竖数摅纾帅闩双谁税顺说硕烁铄丝饲厮驷缌锶鸶耸怂颂讼诵擞薮馊飕锼苏诉肃谡稣虽随绥岁谇孙损笋荪狲缩琐锁唢睃獭挞闼铊鳎台态钛鲐摊贪瘫滩坛谭谈叹昙钽锬顸汤烫傥饧铴镗涛绦讨韬铽腾誊锑题体屉缇鹈阗条粜龆鲦贴铁厅听烃铜统恸头钭秃图钍团抟颓蜕饨脱鸵驮驼椭箨鼍袜娲腽弯湾顽万纨绾网辋韦违围为潍维苇伟伪纬谓卫诿帏闱沩涠玮韪炜鲔温闻纹稳问阌瓮挝蜗涡窝卧莴龌呜钨乌诬无芜吴坞雾务误邬庑怃妩骛鹉鹜锡牺袭习铣戏细饩阋玺觋虾辖峡侠狭厦吓硖鲜纤贤衔闲显险现献县馅羡宪线苋莶藓岘猃娴鹇痫蚝籼跹厢镶乡详响项芗饷骧缃飨萧嚣销晓啸哓潇骁绡枭箫协挟携胁谐写泻谢亵撷绁缬锌衅兴陉荥凶汹锈绣馐鸺虚嘘须许叙绪续诩顼轩悬选癣绚谖铉镟学谑泶鳕勋询寻驯训讯逊埙浔鲟压鸦鸭哑亚讶垭娅桠氩阉烟盐严岩颜阎艳厌砚彦谚验厣赝俨兖谳恹闫酽魇餍鼹鸯杨扬疡阳痒养样炀瑶摇尧遥窑谣药轺鹞鳐爷页业叶靥谒邺晔烨医铱颐遗仪蚁艺亿忆义诣议谊译异绎诒呓峄饴怿驿缢轶贻钇镒镱瘗舣荫阴银饮隐铟瘾樱婴鹰应缨莹萤营荧蝇赢颖茔莺萦蓥撄嘤滢潆璎鹦瘿颏罂哟拥佣痈踊咏镛优忧邮铀犹诱莸铕鱿舆鱼渔娱与屿语狱誉预驭伛俣谀谕蓣嵛饫阈妪纡觎欤钰鹆鹬龉鸳渊辕园员圆缘远橼鸢鼋约跃钥粤悦阅钺郧匀陨运蕴酝晕韵郓芸恽愠纭韫殒氲杂灾载攒暂赞瓒趱錾赃脏驵凿枣责择则泽赜啧帻箦贼谮赠综缯轧铡闸栅诈斋债毡盏斩辗崭栈战绽谵张涨帐账胀赵诏钊蛰辙锗这谪辄鹧贞针侦诊镇阵浈缜桢轸赈祯鸩挣睁狰争帧症郑证诤峥钲铮筝织职执纸挚掷帜质滞骘栉栀轵轾贽鸷蛳絷踬踯觯钟终种肿众锺诌轴皱昼骤纣绉猪诸诛烛瞩嘱贮铸驻伫槠铢专砖转赚啭馔颞桩庄装妆壮状锥赘坠缀骓缒谆准着浊诼镯兹资渍谘缁辎赀眦锱龇鲻踪总纵偬邹诹驺鲰诅组镞钻缵躜鳟翱并卜沉丑淀迭斗范干皋硅柜后伙秸杰诀夸里凌么霉捻凄扦圣尸抬涂洼喂污锨咸蝎彝涌游吁御愿岳云灶扎札筑于志注凋讠谫郄勐凼坂垅垴埯埝苘荬荮莜莼菰藁揸吒吣咔咝咴噘噼嚯幞岙嵴彷徼犸狍馀馇馓馕愣憷懔丬溆滟溷漤潴澹甯纟绔绱珉枧桊桉槔橥轱轷赍肷胨飚煳煅熘愍淼砜磙眍钚钷铘铞锃锍锎锏锘锝锪锫锿镅镎镢镥镩镲稆鹋鹛鹱疬疴痖癯裥襁耢颥螨麴鲅鲆鲇鲞鲴鲺鲼鳊鳋鳘鳙鞒鞴齄';
+        return "内匀吊户册泛丢亘凶夫咤污伫别占吴删吕兑囱壮夹妆决冲没秃灾贝车迤见两来并并仑亚协儿恤姗佛届冈东抛争殁况状卧珏纠芈轧系兖侠长门侣克则劲却侄奸奂尸帅恒彦后拐汹为栅抵杯纣红纪纫纥约苎计订讣贞负军轨俩页风飞们伥闩仿个韦幸伦仓冻刚员娱剥孙岛师宫库悦径峡耻挟书气时晋乌泾狭狈疱佩亩纷纺纱纹纯纽纰级纭胁纳纸脉兹刍荆记讦讨讧讪讯托训讫岂财贡钉针轩钊轫闪阵乃陕回只饥马斗干咱伪伟侦侧国哑坚垩务动问执念够区参娄衔妇张强峥昆雕仑从带帐专将屉凄怅舍扫败挂启扪叙抡斩挣采卷昼弃浅栀勖条枭杀氢杆凉渊捆凄泪狰沦净现璃众产牵朱毕异细绅组终钵荚习茎绊弦统庄扎绍唇绋脱绌贫处觅规访轭讶软诀这讷许设讼连讹术衮贩迳责贯货贪伧伞凯顶剀顷创钗鱼扣鸟劳钓胜钏麦勋闭家陈陆阴备杰围尧丧场寻报岚单壶帧哟几唤厕乔厢复换恶扬闷拣惬恻恼挥涌凑减枣钦残栋壳栈涡汤栖测珐发浑涣盗困无苏砚画秆税犹痉丝络烟给绚笔肃华笋庵莱肾绞胀结绒绝评贵词买证贬诂贸虚诏贷诅诈诋诉诊贮贴贰贻视贲轲注费轴咏贺轶闵闰开周闲间进闲队邮阶乡阳钞钙钮钠钧钝隽钤云韧项顺须饪饭饨饮饬冯驭黄乱佣债涂冢传吗仅倾啬伤块坞偬奥呜铲呛剿妈园媪势圆汇损抢栗摇干愠捣忾厦怆汇彷晖榨晕会业爱极烦炼杨沟桢灭炀枫湿焕温爷岁毁准狮沧琅烟禄珲睐万棱当睁禀痹节盏粤经绢莴捆脚绑肿绥虏脑号义羡荤圣苇蜕叶肠话诛补诡询装诠里诟袅较载诧轼该贼轾详资试贾农诗贿运诘赀游夸赁诙赂诣赅达诚迹违铀铅刨钩过铂铃闸邹陨电钴钳钹钚钾预顽顿顼颁颂饲饴饱饰驰驮驯鸠寿呕伙侥叹梦喽夺奁仆啧侨雇妪团图划尘匮厌宁垫堑尝实殷寝态对畅屡惯崭恸岖惭惨币荣帼杠构搂别折掴彻枪滞渐涨氲涟滚沪渔渗渍涤汉满尔荦狱瑶琐玛疟疡疯愈痪尽监笺筝硕祯绽祸绾种综称绰洼绫窝绿紧缀网纲绮绸绵彩纶维绪缁罚闻搜苍台与席蚀莅盖制荪诵志语诬认诫误说诰诲诱诳狸宾赈赊铰赵铐赶银局铜辅铭辄铢轻铬挽铨衔远阂闺逊闽阁遥阀递合际颇领飒台饺饼饵饷驳肮鸣鸢厉凤唠么齐亿哗仪嘘价喷侬侩啸俭叽凛剧刘坟剑坠堕娴婵妩娇宽审写层帜废厨庙厮广厂弹惮抚愤捻征敌庆挚数虑暂扑忧捞样戚撑椁怂拨桩欲挠枢标怜悯楼桨乐溃枞润疮欧涧皑殇皱盘殴浆热眯泼牦奖洁确浇莹潜码纬肤致缄谷缅缉莲编缘荫窑缐穷缎缓蒋缍范骂卜罢葱缔练胶虾课蜗诿虱谄调谁论卫诤冲竖复猪赔赏谊赋谅贱谈账谆赌诞贤请卖诸赐质碰践辉辆辍辈辇轮辎适锐锉锋闾迁阅邻郑邓腌巩锌颉锑刮销养铺饿锄馁铝余驼驻驷驶驽驾驹驸发闹鱿鲁鸩鸦麸齿尽俦傧剂当吨惫懔哝忆嗳战垦坛拥挡奋挞袅据学掳导择宪凭捡机担历烫历焖晓淀焰浓独朴泽桦浊玑横瓯树炽卢椭炖磷桥烧瞒灯缣砖萦缚御县积颖稣窥腻蓑筑笃兴箬舱筛缢荡萧芜蚂萤裤亲觎谛谚谏讳辐谋辑谍输谐谘办诺谒谓选讽迟谕辽遗猫赖锭表锯踊锰错钱钢锡录铮锥锦阎随险沾静䩄颊哄颈鲍频鸵颔鸪头鸯颓鸭颐鸰鸳馆饯馄龙馅龟骇骈优骆偿储励咛尝吓压婴嫔嬷尴屿岭岳帮弥档应恳检桧戏栉殓泞击滨济挤拧蒙涛拟滥搁敛涩毙浚暧营灿烛毁烩墙狞获环瑷痨疗荡粪了矫缩绩缪缕矶缧绷缝禅总纵缫篓声聪联耸脓胆脸脍临举艰姜褛蔷觊谜谤谦亏讲谎谣谢誊溪蝼赚赛蝈购趋亵辖辗毂辕舆还迈酝丑镀镁虽锚键炼锲韩锅颗锤飓钟喂锺骋锹骏锻鲜锾鲛阔鲔阕鸿阑鸽闱板隐点隶斋丛噜向圹垒婶懑扩掷扰撵摆擞熏断犷猎槟瓮柜槛疠柠愈棹欤归殡础泻礼沈穑滤秽渎窜溅窍箫浏箪篑简粮织缮绕缭绣坛翘职聂脐膑旧萨踪蓝躯转借辙迩蛲医蝉酱虫厘镕觐镑觞锁谟钨谨镍谬镇丰阖赘闯阗蹒杂双雏鸡秋额颜题颚颛飏馏馊馈骑松鲨怀鲤懒鲫鹃鹅拢鹄旷冬橱椟榈咽橹咙坏潇垄濑坜宠沥庞濒庐惩烁牍犊兽獭玺琼畴蒙碍祷获稳帘签檐系茧裆绎绳袄绘哗罗谱膻识证谭腊谲讥艺赠薮赞药蚁蝇蝎跷辚轿辞边镜镝铲镞链镗镘镖镙锵镂铿关陇离鹊难鹌鹏雾丽韬韵麹类愿劝颠飕嘤馒严骛骗胡鲸鲳宝鹑悬鹉忏拦搀胧澜弥炉牺献珑痒症矿砺矾砾窦竞筹蕴篮蚝褴辫觉缤触继议胪译舰赢赡蔼趸蔺芦跶苹释锈阐飘饶饥骞腾骚鳃鳅咸面党龃出龄苏钟铙俪嗫续啭嚣兰藓属蛎惧慑蜡摄袜携览樱谴栏护歼誉赃烂踌癞跃眬轰藤辩缠镰镭铁铛铎镯辟响顾驱骠蓦骡髅鳍鳏莺鹤鹞龇龈俨呓啰孪巅峦弯摊踯权辔欢铸洒鉴滩鉴猡霁叠瘾鞑癣缰笼颤籁骄聋须听鳖脏鲢袭鳔衬鳗读鹧赎鸥赝鼹龉龊龚苏岩恋挛搅窃签缨纤萝蛊变逦镳铄靥显餍惊驿验脏体鳝鳞鳜鸶霉嘱坝揽瘫癫羁蚕让谗谶赣酿雳灵霭鳄鲈黩艳凿鹦骊郁鸾吁颦骤鬓魇鹰鹭硷盐鳌龌龋厅榄湾篱箩蛮蹑衅镶钥颅馋滦瞩赞驴骥缆躏钻銮锣锕嫒谙铵骜鳌钯呗钣鸨龅钡鹎锛荜哔滗铋筚跸苄缏笾飑飙瘪摈镔髌饽鹁钸骖黪锸侪掺冁蒇骣觇镡苌阊砗谌榇碜龀枨柽铖痴鸱铳帱雠蹰鹚苁骢辏蹿撺鹾哒骀绐郸掸殚赕瘅谠砀焘镫籴绨觌钿铫鲷鲽铤铥岽鸫簖怼镦谔阏锇锷鹗诶铒鸸鲕钒钫鲂诽绯镄鲱偾沣凫绂赙鲋鳆钆擀绀岗戆镐睾缟锆镉颍赓绠鲠苟缑觏锢鹘剐鸹观诖掼鹳刽匦刿妫鲑辊绲鲧埚呙铪阚绗灏颢诃黉荭闳鲎浒鹕骅铧缳鲩鳇荟哕浍缋诨阍钬镬蓟荠哜齑虿跻鲚郏浃铗镓碱荐戋戬睑鹣笕鲣鞯绛缴挢峤鹪疖颌鲒烬卺荩馑缙赆净刭弪胫靓厩阄鹫讵屦榉钜锔窭锩镌皲垲恺铠锴龛闶钪骒缂钶锞抠喾郐哙狯髋诓邝纩贶岿馈蒉愦聩阃锟鲲蛴崃徕涞赉铼谰斓镧阆锒涝崂铑铹鳓诔郦苈蓠呖缡枥栎轹锂鹂粝跞鲡鳢蔹潋琏裢裣魉镣钌鹩廪檩棂蛏鲮骝绺镏鹨茏泷栊砻偻蒌嵝瘘耧卤垆撸泸渌栌轳辂辘氇鸬舻脔娈栾囵逻泺椤脶锊呒唛杩劢谩缦颡铆麽钔幂谧猕祢渑腼黾缈缗馍镆钼呐铌鲵鲶茑啮镊陧蘖颟聍钕傩沤讴怄罴铍谝缥钋镤镨蕲骐桤碛颀颃钎佥荨悭缱椠墙嫱樯戗炝锖镪羟跄诮谯荞缲硗箧锓揿鲭茕蛱巯赇虮诎阒觑鸲颧绻辁阙悫荛娆桡嵘蝾缛铷蚬毵糁铯刹铩晒酾陕骟钐墒垧厍滠畲诜谂渖湿谥埘莳弑贳铈鲥绶摅纾缌锶锼谡谇狲唢睃闼铊鳎钛鲐昙钽锬顸傥饧铴绦铽缇鹈粜龆鲦烃钭钍抟箨鼍娲腽纨辋潍帏沩涠玮韪炜阌挝邬庑怃鹜铣饩阋觋硖线苋莶岘猃鹇痫籼跹芗骧缃飨哓骁绡撷绁缬陉荥锈馐鸺诩谖铉镟谑泶鳕埙浔鲟垭娅桠氩阉艳厣谳恹闫酽轺鳐邺晔烨铱诒峄怿钇镒镱瘗舣铟荧茔蓥撄滢潆璎瘿颏罂痈镛莸铕伛俣谀蓣嵛饫阈纡钰鹆鹬橼鼋钺郧郓芸恽韫殒攒瓒趱錾驵赜帻箦谮缯铡毡谵蛰锗谪浈缜轸钲骘轵贽鸷蛳絷踬觯诌绉槠馔颞骓缒着诼眦锱鲻诹驺鲰钻缵躜鳟翱沉迭皋硅秸里凌么扦抬锨彝灶札于凋讠谫郄勐凼坂垅垴埯埝苘荬荮莜莼菰藁揸吒吣咔咝咴噘噼嚯幞岙嵴彷徼犸狍馀馇馓馕愣憷丬溆滟溷漤潴澹甯纟绔绱珉枧桊桉槔橥轱轷赍肷胨飚煳煅熘愍淼砜磙眍钚钷铘铞锃锍锎锏锘锝锪锫锿镅镎镢镥镩镲稆鹋鹛鹱疬疴痖癯裥襁耢颥螨麴鲅鲆鲇鲞鲴鲺鲼鳊鳋鳘鳙鞒鞴齄";
     }
     var traditionalChinese = function () {
-        return '錒皚藹礙愛噯嬡璦曖靄諳銨鵪骯襖奧媼驁鰲壩罷鈀擺敗唄頒辦絆鈑幫綁鎊謗剝飽寶報鮑鴇齙輩貝鋇狽備憊鵯賁錛繃筆畢斃幣閉蓽嗶潷鉍篳蹕邊編貶變辯辮芐緶籩標驃颮飆鏢鑣鰾鱉別癟瀕濱賓擯儐繽檳殯臏鑌髕鬢餅稟撥缽鉑駁餑鈸鵓補鈽財參蠶殘慚慘燦驂黲蒼艙倉滄廁側冊測惻層詫鍤儕釵攙摻蟬饞讒纏鏟產闡顫囅諂讖蕆懺嬋驏覘禪鐔場嘗長償腸廠暢倀萇悵閶鯧鈔車徹硨塵陳襯傖諶櫬磣齔撐稱懲誠騁棖檉鋮鐺癡遲馳恥齒熾飭鴟沖衝蟲寵銃疇躊籌綢儔幬讎櫥廚鋤雛礎儲觸處芻絀躕傳釧瘡闖創愴錘綞純鶉綽輟齪辭詞賜鶿聰蔥囪從叢蓯驄樅湊輳躥竄攛錯銼鹺達噠韃帶貸駘紿擔單鄲撣膽憚誕彈殫賧癉簞當擋黨蕩檔讜碭襠搗島禱導盜燾燈鄧鐙敵滌遞締糴詆諦綈覿鏑顛點墊電巔鈿癲釣調銚鯛諜疊鰈釘頂錠訂鋌丟銩東動棟凍崠鶇竇犢獨讀賭鍍瀆櫝牘篤黷鍛斷緞籪兌隊對懟鐓噸頓鈍燉躉奪墮鐸鵝額訛惡餓諤堊閼軛鋨鍔鶚顎顓鱷誒兒爾餌貳邇鉺鴯鮞發罰閥琺礬釩煩販飯訪紡鈁魴飛誹廢費緋鐨鯡紛墳奮憤糞僨豐楓鋒風瘋馮縫諷鳳灃膚輻撫輔賦復負訃婦縛鳧駙紱紼賻麩鮒鰒釓該鈣蓋賅桿趕稈贛尷搟紺岡剛鋼綱崗戇鎬睪誥縞鋯擱鴿閣鉻個紇鎘潁給亙賡綆鯁龔宮鞏貢鉤溝茍構購夠詬緱覯蠱顧詁轂鈷錮鴣鵠鶻剮掛鴰摑關觀館慣貫詿摜鸛鰥廣獷規歸龜閨軌詭貴劊匭劌媯檜鮭鱖輥滾袞緄鯀鍋國過堝咼幗槨蟈鉿駭韓漢闞絎頡號灝顥閡鶴賀訶闔蠣橫轟鴻紅黌訌葒閎鱟壺護滬戶滸鶘嘩華畫劃話驊樺鏵懷壞歡環還緩換喚瘓煥渙奐繯鍰鯇黃謊鰉揮輝毀賄穢會燴匯諱誨繪詼薈噦澮繢琿暉葷渾諢餛閽獲貨禍鈥鑊擊機積饑跡譏雞績緝極輯級擠幾薊劑濟計記際繼紀訐詰薺嘰嚌驥璣覬齏磯羈蠆躋霽鱭鯽夾莢頰賈鉀價駕郟浹鋏鎵蟯殲監堅箋間艱緘繭檢堿鹼揀撿簡儉減薦檻鑒踐賤見鍵艦劍餞漸濺澗諫縑戔戩瞼鶼筧鰹韉將漿蔣槳獎講醬絳韁膠澆驕嬌攪鉸矯僥腳餃繳絞轎較撟嶠鷦鮫階節潔結誡屆癤頜鮚緊錦僅謹進晉燼盡勁荊莖巹藎饉縉贐覲鯨驚經頸靜鏡徑痙競凈剄涇逕弳脛靚糾廄舊鬮鳩鷲駒舉據鋸懼劇詎屨櫸颶鉅鋦窶齟鵑絹錈鐫雋覺決絕譎玨鈞軍駿皸開凱剴塏愾愷鎧鍇龕閌鈧銬顆殼課騍緙軻鈳錁頷墾懇齦鏗摳庫褲嚳塊儈鄶噲膾寬獪髖礦曠況誆誑鄺壙纊貺虧巋窺饋潰匱蕢憒聵簣閫錕鯤擴闊蠐蠟臘萊來賴崍徠淶瀨賚睞錸癩籟藍欄攔籃闌蘭瀾讕攬覽懶纜爛濫嵐欖斕鑭襤瑯閬鋃撈勞澇嘮嶗銠鐒癆樂鰳鐳壘類淚誄縲籬貍離鯉禮麗厲勵礫歷瀝隸儷酈壢藶蒞蘺嚦邐驪縭櫪櫟轢礪鋰鸝癘糲躒靂鱺鱧倆聯蓮連鐮憐漣簾斂臉鏈戀煉練蘞奩瀲璉殮褳襝鰱糧涼兩輛諒魎療遼鐐繚釕鷯獵臨鄰鱗凜賃藺廩檁轔躪齡鈴靈嶺領綾欞蟶鯪餾劉瀏騮綹鎦鷚龍聾嚨籠壟攏隴蘢瀧瓏櫳朧礱樓婁摟簍僂蔞嘍嶁鏤瘺耬螻髏蘆盧顱廬爐擄鹵虜魯賂祿錄陸壚擼嚕閭瀘淥櫨櫓轤輅轆氌臚鸕鷺艫鱸巒攣孿灤亂臠孌欒鸞鑾掄輪倫侖淪綸論圇蘿羅邏鑼籮騾駱絡犖玀濼欏腡鏍驢呂鋁侶屢縷慮濾綠櫚褸鋝嘸媽瑪碼螞馬罵嗎嘜嬤榪買麥賣邁脈勱瞞饅蠻滿謾縵鏝顙鰻貓錨鉚貿麼沒鎂門悶們捫燜懣鍆錳夢瞇謎彌覓冪羋謐獼禰綿緬澠靦黽廟緲繆滅憫閩閔緡鳴銘謬謨驀饃歿鏌謀畝鉬吶鈉納難撓腦惱鬧鐃訥餒內擬膩鈮鯢攆輦鯰釀鳥蔦裊聶嚙鑷鎳隉蘗囁顢躡檸獰寧擰濘苧嚀聹鈕紐膿濃農儂噥駑釹諾儺瘧歐鷗毆嘔漚謳慪甌盤蹣龐拋皰賠轡噴鵬紕羆鈹騙諞駢飄縹頻貧嬪蘋憑評潑頗釙撲鋪樸譜鏷鐠棲臍齊騎豈啟氣棄訖蘄騏綺榿磧頎頏鰭牽釬鉛遷簽謙錢鉗潛淺譴塹僉蕁慳騫繾槧鈐槍嗆墻薔強搶嬙檣戧熗錆鏘鏹羥蹌鍬橋喬僑翹竅誚譙蕎繰磽蹺竊愜鍥篋欽親寢鋟輕氫傾頃請慶撳鯖瓊窮煢蛺巰賕蟣鰍趨區軀驅齲詘嶇闃覷鴝顴權勸詮綣輇銓卻鵲確闋闕愨讓饒擾繞蕘嬈橈熱韌認紉飪軔榮絨嶸蠑縟銣顰軟銳蜆閏潤灑薩颯鰓賽傘毿糝喪騷掃繅澀嗇銫穡殺剎紗鎩鯊篩曬釃刪閃陜贍繕訕姍騸釤鱔墑傷賞坰殤觴燒紹賒攝懾設厙灄畬紳審嬸腎滲詵諗瀋聲繩勝師獅濕詩時蝕實識駛勢適釋飾視試謚塒蒔弒軾貰鈰鰣壽獸綬樞輸書贖屬術樹豎數攄紓帥閂雙誰稅順說碩爍鑠絲飼廝駟緦鍶鷥聳慫頌訟誦擻藪餿颼鎪蘇訴肅謖穌雖隨綏歲誶孫損筍蓀猻縮瑣鎖嗩脧獺撻闥鉈鰨臺態鈦鮐攤貪癱灘壇譚談嘆曇鉭錟頇湯燙儻餳鐋鏜濤絳討韜鋱騰謄銻題體屜緹鵜闐條糶齠鰷貼鐵廳聽烴銅統慟頭鈄禿圖釷團摶頹蛻飩脫鴕馱駝橢籜鼉襪媧膃彎灣頑萬紈綰網輞韋違圍為濰維葦偉偽緯謂衛諉幃闈溈潿瑋韙煒鮪溫聞紋穩問閿甕撾蝸渦窩臥萵齷嗚鎢烏誣無蕪吳塢霧務誤鄔廡憮嫵騖鵡鶩錫犧襲習銑戲細餼鬩璽覡蝦轄峽俠狹廈嚇硤鮮纖賢銜閑顯險現獻縣餡羨憲線莧薟蘚峴獫嫻鷴癇蠔秈躚廂鑲鄉詳響項薌餉驤緗饗蕭囂銷曉嘯嘵瀟驍綃梟簫協挾攜脅諧寫瀉謝褻擷紲纈鋅釁興陘滎兇洶銹繡饈鵂虛噓須許敘緒續詡頊軒懸選癬絢諼鉉鏇學謔澩鱈勛詢尋馴訓訊遜塤潯鱘壓鴉鴨啞亞訝埡婭椏氬閹煙鹽嚴巖顏閻艷厭硯彥諺驗厴贗儼兗讞懨閆釅魘饜鼴鴦楊揚瘍陽癢養樣煬瑤搖堯遙窯謠藥軺鷂鰩爺頁業葉靨謁鄴曄燁醫銥頤遺儀蟻藝億憶義詣議誼譯異繹詒囈嶧飴懌驛縊軼貽釔鎰鐿瘞艤蔭陰銀飲隱銦癮櫻嬰鷹應纓瑩螢營熒蠅贏穎塋鶯縈鎣攖嚶瀅瀠瓔鸚癭頦罌喲擁傭癰踴詠鏞優憂郵鈾猶誘蕕銪魷輿魚漁娛與嶼語獄譽預馭傴俁諛諭蕷崳飫閾嫗紆覦歟鈺鵒鷸齬鴛淵轅園員圓緣遠櫞鳶黿約躍鑰粵悅閱鉞鄖勻隕運蘊醞暈韻鄆蕓惲慍紜韞殞氳雜災載攢暫贊瓚趲鏨贓臟駔鑿棗責擇則澤賾嘖幘簀賊譖贈綜繒軋鍘閘柵詐齋債氈盞斬輾嶄棧戰綻譫張漲帳賬脹趙詔釗蟄轍鍺這謫輒鷓貞針偵診鎮陣湞縝楨軫賑禎鴆掙睜猙爭幀癥鄭證諍崢鉦錚箏織職執紙摯擲幟質滯騭櫛梔軹輊贄鷙螄縶躓躑觶鐘終種腫眾鍾謅軸皺晝驟紂縐豬諸誅燭矚囑貯鑄駐佇櫧銖專磚轉賺囀饌顳樁莊裝妝壯狀錐贅墜綴騅縋諄準著濁諑鐲茲資漬諮緇輜貲眥錙齜鯔蹤總縱傯鄒諏騶鯫詛組鏃鉆纘躦鱒翺並蔔沈醜澱叠鬥範幹臯矽櫃後夥稭傑訣誇裏淩麽黴撚淒扡聖屍擡塗窪餵汙鍁鹹蠍彜湧遊籲禦願嶽雲竈紮劄築於誌註雕訁譾郤猛氹阪壟堖垵墊檾蕒葤蓧蒓菇槁摣咤唚哢噝噅撅劈謔襆嶴脊仿僥獁麅餘餷饊饢楞怵懍爿漵灩混濫瀦淡寧糸絝緔瑉梘棬案橰櫫軲軤賫膁腖飈糊煆溜湣渺碸滾瞘鈈鉕鋣銱鋥鋶鐦鐧鍩鍀鍃錇鎄鎇鎿鐝鑥鑹鑔穭鶓鶥鸌癧屙瘂臒襇繈耮顬蟎麯鮁鮃鮎鯗鯝鯴鱝鯿鰠鰵鱅鞽韝齇';
+        return "內勻弔戶冊氾丟亙兇伕吒汙佇別佔吳刪呂兌囪壯夾妝決沖沒禿災貝車迆見兩來並併侖亞協兒卹姍彿屆岡東拋爭歿況狀臥玨糾羋軋係兗俠長門侶剋則勁卻姪姦奐屍帥恆彥後枴洶為柵牴盃紂紅紀紉紇約苧計訂訃貞負軍軌倆頁風飛們倀閂倣個韋倖倫倉凍剛員娛剝孫島師宮庫悅徑峽恥挾書氣時晉烏涇狹狽皰珮畝紛紡紗紋純紐紕級紜脅納紙脈茲芻荊記訐討訌訕訊託訓訖豈財貢釘針軒釗軔閃陣迺陝迴隻飢馬鬥乾偺偽偉偵側國啞堅堊務動問執唸夠區參婁啣婦張強崢崑彫崙從帶帳專將屜悽悵捨掃敗掛啟捫敘掄斬掙採捲晝棄淺梔勗條梟殺氫桿涼淵梱淒淚猙淪淨現琍眾產牽硃畢異細紳組終缽莢習莖絆絃統莊紮紹脣紼脫絀貧處覓規訪軛訝軟訣這訥許設訟連訛術袞販逕責貫貨貪傖傘凱頂剴頃創釵魚釦鳥勞釣勝釧麥勛閉傢陳陸陰備傑圍堯喪場尋報嵐單壺幀喲幾喚廁喬廂復換惡揚悶揀愜惻惱揮湧湊減棗欽殘棟殼棧渦湯棲測琺發渾渙盜睏無甦硯畫稈稅猶痙絲絡菸給絢筆肅華筍菴萊腎絞脹結絨絕評貴詞買証貶詁貿虛詔貸詛詐詆訴診貯貼貳貽視賁軻註費軸詠賀軼閔閏開週閑間進閒隊郵階鄉陽鈔鈣鈕鈉鈞鈍雋鈐雲韌項順須飪飯飩飲飭馮馭黃亂傭債塗塚傳嗎僅傾嗇傷塊塢傯奧嗚剷嗆勦媽園媼勢圓匯損搶慄搖幹慍搗愾廈愴彙徬暉搾暈會業愛極煩煉楊溝楨滅煬楓溼煥溫爺歲毀準獅滄瑯煙祿琿睞萬稜當睜稟痺節盞粵經絹萵綑腳綁腫綏虜腦號義羨葷聖葦蛻葉腸話誅補詭詢裝詮裡詬裊較載詫軾該賊輊詳資試賈農詩賄運詰貲遊誇賃詼賂詣賅達誠跡違鈾鉛鉋鉤過鉑鈴閘鄒隕電鈷鉗鈸鈽鉀預頑頓頊頒頌飼飴飽飾馳馱馴鳩壽嘔夥僥嘆夢嘍奪奩僕嘖僑僱嫗團圖劃塵匱厭寧墊塹嘗實慇寢態對暢屢慣嶄慟嶇慚慘幣榮幗槓構摟彆摺摑徹槍滯漸漲氳漣滾滬漁滲漬滌漢滿爾犖獄瑤瑣瑪瘧瘍瘋瘉瘓盡監箋箏碩禎綻禍綰種綜稱綽窪綾窩綠緊綴網綱綺綢綿綵綸維緒緇罰聞蒐蒼臺與蓆蝕蒞蓋製蓀誦誌語誣認誡誤說誥誨誘誑貍賓賑賒鉸趙銬趕銀跼銅輔銘輒銖輕鉻輓銓銜遠閡閨遜閩閣遙閥遞閤際頗領颯颱餃餅餌餉駁骯鳴鳶厲鳳嘮麼齊億嘩儀噓價噴儂儈嘯儉嘰凜劇劉墳劍墜墮嫻嬋嫵嬌寬審寫層幟廢廚廟廝廣廠彈憚撫憤撚徵敵慶摯數慮暫撲憂撈樣慼撐槨慫撥樁慾撓樞標憐憫樓槳樂潰樅潤瘡歐澗皚殤皺盤毆漿熱瞇潑犛獎潔確澆瑩潛碼緯膚緻緘穀緬緝蓮編緣蔭窯線窮緞緩蔣綞範罵蔔罷蔥締練膠蝦課蝸諉蝨諂調誰論衛諍衝豎複豬賠賞誼賦諒賤談賬諄賭誕賢請賣諸賜質踫踐輝輛輟輩輦輪輜適銳銼鋒閭遷閱鄰鄭鄧醃鞏鋅頡銻颳銷養鋪餓鋤餒鋁餘駝駐駟駛駑駕駒駙髮鬧魷魯鴆鴉麩齒儘儔儐劑噹噸憊懍噥憶噯戰墾壇擁擋奮撻嬝據學擄導擇憲憑撿機擔歷燙曆燜曉澱燄濃獨樸澤樺濁璣橫甌樹熾盧橢燉燐橋燒瞞燈縑磚縈縛禦縣積穎穌窺膩簑築篤興篛艙篩縊蕩蕭蕪螞螢褲親覦諦諺諫諱輻謀輯諜輸諧諮辦諾謁謂選諷遲諭遼遺貓賴錠錶鋸踴錳錯錢鋼錫錄錚錐錦閻隨險霑靜靦頰鬨頸鮑頻鴕頷鴣頭鴦頹鴨頤鴒鴛館餞餛龍餡龜駭駢優駱償儲勵嚀嚐嚇壓嬰嬪嬤尷嶼嶺嶽幫彌檔應懇檢檜戲櫛殮濘擊濱濟擠擰濛濤擬濫擱斂澀斃濬曖營燦燭燬燴牆獰獲環璦癆療盪糞瞭矯縮績繆縷磯縲繃縫禪總縱繅簍聲聰聯聳膿膽臉膾臨舉艱薑褸薔覬謎謗謙虧講謊謠謝謄谿螻賺賽蟈購趨褻轄輾轂轅輿還邁醞醜鍍鎂雖錨鍵鍊鍥韓鍋顆錘颶鍾餵鍾騁鍬駿鍛鮮鍰鮫闊鮪闋鴻闌鴿闈闆隱點隸齋叢嚕嚮壙壘嬸懣擴擲擾攆擺擻燻斷獷獵檳甕櫃檻癘檸癒櫂歟歸殯礎瀉禮瀋穡濾穢瀆竄濺竅簫瀏簞簣簡糧織繕繞繚繡罈翹職聶臍臏舊薩蹤藍軀轉藉轍邇蟯醫蟬醬蟲釐鎔覲鎊觴鎖謨鎢謹鎳謬鎮豐闔贅闖闐蹣雜雙雛雞鞦額顏題顎顓颺餾餿餽騎鬆鯊懷鯉懶鯽鵑鵝攏鵠曠鼕櫥櫝櫚嚥櫓嚨壞瀟壟瀨壢寵瀝龐瀕廬懲爍牘犢獸獺璽瓊疇矇礙禱穫穩簾簽簷繫繭襠繹繩襖繪譁羅譜羶識證譚臘譎譏藝贈藪贊藥蟻蠅蠍蹺轔轎辭邊鏡鏑鏟鏃鏈鏜鏝鏢鏍鏘鏤鏗關隴離鵲難鵪鵬霧麗韜韻麴類願勸顛颼嚶饅嚴騖騙鬍鯨鯧寶鶉懸鵡懺攔攙朧瀾瀰爐犧獻瓏癢癥礦礪礬礫竇競籌蘊籃蠔襤辮覺繽觸繼議臚譯艦贏贍藹躉藺蘆躂蘋釋鏽闡飄饒饑騫騰騷鰓鰍鹹麵黨齟齣齡蘇鐘鐃儷囁續囀囂蘭蘚屬蠣懼懾蠟攝襪攜覽櫻譴欄護殲譽贓爛躊癩躍矓轟籐辯纏鐮鐳鐵鐺鐸鐲闢響顧驅驃驀騾髏鰭鰥鶯鶴鷂齜齦儼囈囉孿巔巒彎攤躑權轡歡鑄灑鑑灘鑒玀霽疊癮韃癬韁籠顫籟驕聾鬚聽鱉臟鰱襲鰾襯鰻讀鷓贖鷗贗鼴齬齪龔囌巖戀攣攪竊籤纓纖蘿蠱變邐鑣鑠靨顯饜驚驛驗髒體鱔鱗鱖鷥黴囑壩攬癱癲羈蠶讓讒讖贛釀靂靈靄鱷鱸黷豔鑿鸚驪鬱鸞籲顰驟鬢魘鷹鷺鹼鹽鼇齷齲廳欖灣籬籮蠻躡釁鑲鑰顱饞灤矚讚驢驥纜躪鑽鑾鑼錒嬡諳銨驁鰲鈀唄鈑鴇齙鋇鵯錛蓽嗶潷鉍篳蹕芐緶籩颮飆癟擯鑌髕餑鵓鈽驂黲鍤儕摻囅蕆驏覘鐔萇閶硨諶櫬磣齔棖檉鋮癡鴟銃幬讎躕鶿蓯驄輳躥攛鹺噠駘紿鄲撣殫賧癉讜碭燾鐙糴綈覿鈿銚鯛鰈鋌銩崠鶇籪懟鐓諤閼鋨鍔鶚誒鉺鴯鮞釩鈁魴誹緋鐨鯡僨灃鳧紱賻鮒鰒釓搟紺崗戇鎬睪縞鋯鎘潁賡綆鯁茍緱覯錮鶻剮鴰觀詿摜鸛劊匭劌媯鮭輥緄鯀堝咼鉿闞絎灝顥訶黌葒閎鱟滸鶘驊鏵繯鯇鰉薈噦澮繢諢閽鈥鑊薊薺嚌齏蠆躋鱭郟浹鋏鎵堿薦戔戩瞼鶼筧鰹韉絳繳撟嶠鷦癤頜鮚燼巹藎饉縉贐凈剄弳脛靚廄鬮鷲詎屨櫸鉅鋦窶錈鐫皸塏愷鎧鍇龕閌鈧騍緙鈳錁摳嚳鄶噲獪髖誆鄺纊貺巋饋蕢憒聵閫錕鯤蠐崍徠淶賚錸讕斕鑭閬鋃澇嶗銠鐒鰳誄酈藶蘺嚦縭櫪櫟轢鋰鸝糲躒鱺鱧蘞瀲璉褳襝魎鐐釕鷯廩檁欞蟶鯪騮綹鎦鷚蘢瀧櫳礱僂蔞嶁瘺耬鹵壚擼瀘淥櫨轤輅轆氌鸕艫臠孌欒圇邏濼欏腡鋝嘸嘜榪勱謾縵顙鉚麼鍆冪謐獼禰澠靦黽緲緡饃鏌鉬吶鈮鯢鯰蔦嚙鑷隉蘗顢聹釹儺漚謳慪羆鈹諞縹釙鏷鐠蘄騏榿磧頎頏釬僉蕁慳繾槧墻嬙檣戧熗錆鏹羥蹌誚譙蕎繰磽篋鋟撳鯖煢蛺巰賕蟣詘闃覷鴝顴綣輇闕愨蕘嬈橈嶸蠑縟銣蜆毿糝銫剎鎩曬釃陜騸釤墑坰厙灄畬詵諗瀋濕謚塒蒔弒貰鈰鰣綬攄紓緦鍶鎪謖誶猻嗩脧闥鉈鰨鈦鮐曇鉭錟頇儻餳鐋絳鋱緹鵜糶齠鰷烴鈄釷摶籜鼉媧膃紈輞濰幃溈潿瑋韙煒閿撾鄔廡憮鶩銑餼鬩覡硤線莧薟峴獫鷴癇秈躚薌驤緗饗嘵驍綃擷紲纈陘滎銹饈鵂詡諼鉉鏇謔澩鱈塤潯鱘埡婭椏氬閹艷厴讞懨閆釅軺鰩鄴曄燁銥詒嶧懌釔鎰鐿瘞艤銦熒塋鎣攖瀅瀠瓔癭頦罌癰鏞蕕銪傴俁諛蕷崳飫閾紆鈺鵒鷸櫞黿鉞鄖鄆蕓惲韞殞攢瓚趲鏨駔賾幘簀譖繒鍘氈譫蟄鍺謫湞縝軫鉦騭軹贄鷙螄縶躓觶謅縐櫧饌顳騅縋著諑眥錙鯔諏騶鯫鉆纘躦鱒翺沈叠臯矽稭裏淩麽扡擡鍁彜竈劄於雕訁譾郤猛氹阪壟堖垵墊檾蕒葤蓧蒓菇槁摣咤唚哢噝噅撅劈謔襆嶴脊仿僥獁麅餘餷饊饢楞怵爿漵灩混濫瀦淡寧糸絝緔瑉梘棬案橰櫫軲軤賫膁腖飈糊煆溜湣渺碸滾瞘鈈鉕鋣銱鋥鋶鐦鐧鍩鍀鍃錇鎄鎇鎿鐝鑥鑹鑔穭鶓鶥鸌癧屙瘂臒襇繈耮顬蟎麯鮁鮃鮎鯗鯝鯴鱝鯿鰠鰵鱅鞽韝齇";
     }
     /**
      * @description: 转简体
@@ -68,39 +74,54 @@
 
 
     /**
-     * @description: 使用函数直接转换字符串到简体，第二个参数表示是否返回转换字符数记录
+     * @description: 使用函数直接转换字符串到简体，counter参数表示是否返回转换字符数记录，promise表示是否使用promise，当数据过大时建议promise
      * @param {String} str
      * @param {Boolean} counter
-     * @return {Object|String}
+     * @param {Boolean} promise
+     * @return {Object|String|Promise}
      */
-    var toSimple = function (str, counter) {
-        return new Promise(function (resolve, reject) {
+    var toSimple = function (str, counter, promise) {
+        if (Boolean(promise)) {
+            return new Promise(function (resolve, reject) {
+                var obj = simplized(str);
+                if (Boolean(counter) === true) {
+                    resolve(obj);
+                } else {
+                    resolve(obj.result);
+                }
+                reject('unknown error');
+            });
+        }
+        else {
             var obj = simplized(str);
-            if (Boolean(counter) === true) {
-                resolve(obj);
-            } else {
-                resolve(obj.result);
-            }
-            reject('unknown error');
-        });
+            return Boolean(counter) ? obj : obj.result;
+        }
 
     }
     /**
-     * @description: 使用函数直接转换字符串到简体，第二个参数表示是否返回转换字符数记录
+     * @description: 使用函数直接转换字符串到简体，counter参数表示是否返回转换字符数记录，promise表示是否使用promise，当数据过大时建议promise
      * @param {String} str
      * @param {Boolean} counter
-     * @return {Object|String}
+     * @param {Boolean} promise
+     * @return {Object|String|Promise}
      */
-    var toTraditional = function (str, counter) {
-        return new Promise(function (resolve, reject) {
+    var toTraditional = function (str, counter, promise) {
+        if (Boolean(promise)) {
+            return new Promise(function (resolve, reject) {
+                var obj = traditionalized(str);
+                if (Boolean(counter) === true) {
+                    resolve(obj);
+                } else {
+                    resolve(obj.result);
+                }
+                reject('unknown error');
+            });
+        }
+        else {
             var obj = traditionalized(str);
-            if (Boolean(counter) === true) {
-                resolve(obj);
-            } else {
-                resolve(obj.result);
-            }
-            reject('unknown error');
-        });
+            return Boolean(counter) ? obj : obj.result;
+        }
+
     }
     var legalTypes = [Node.DOCUMENT_NODE, Node.DOCUMENT_FRAGMENT_NODE, Node.TEXT_NODE, Node.ELEMENT_NODE];
     /**
@@ -111,40 +132,61 @@
     var transDomToSimple = function (node) {
         return new Promise(function (resolve, reject) {
             var parent = node ? node : document;
-            if (!legalTypes.includes(parent.nodeType)) {
+            if (!legalTypes.some(function (type) { return parent.nodeType === type; })) {
                 throw new Error('illegal NodeType,legal NodeType:'.concat(JSON.stringify(legalTypes)));
             }
             if (parent === document) {
-                var nodesCount = 0;
-                var charsCount = 0;
+                var nodeCount = 0;
+                var charCount = 0;
                 document.querySelectorAll('*').forEach(function (ele) {
                     ele.childNodes.forEach(function (node) {
-                        if (node.nodeType == Node.TEXT_NODE && node.data.replace(/\s/g, '').length > 0) {
+                        if (['input', 'textarea'].some(function (tagName) { return node.nodeName.toLowerCase() === tagName })) {
+                            var r = simplized(node.value);
+                            if (r.count > 0) {
+                                node.value = r.result;
+                                nodeCount++;
+                                charCount += r.count;
+                            }
+                        }
+                        else if (node.nodeType == Node.TEXT_NODE && node.data.replace(/\s/g, '').length > 0) {
                             var r = simplized(node.data);
-                            node.data = r.result;
-                            nodesCount++;
-                            charsCount += r.count;
+                            if (r.count > 0) {
+                                node.data = r.result;
+                                nodeCount++;
+                                charCount += r.count;
+                            }
                         }
                     });
                 });
-                resolve({ 'nodesCount': nodesCount, 'charsCount': charsCount });
+                resolve({ 'nodeCount': nodeCount, 'charCount': charCount });
             }
             else {
-                var nodesList = Array.prototype.slice.call(parent.childNodes);
-                var nodesCount = 0;
-                var charsCount = 0;
-                while (nodesList.length) {
-                    node = nodesList.shift();
-                    if (node.nodeType === Node.TEXT_NODE) {
+                var nodeList = Array.prototype.slice.call(parent.childNodes);
+                nodeList.length == 0 && nodeList.push(parent);
+                var nodeCount = 0;
+                var charCount = 0;
+                while (nodeList.length) {
+                    node = nodeList.shift();
+                    if (['input', 'textarea'].some(function (tagName) { return node.nodeName.toLowerCase() === tagName })) {
+                        var r = simplized(node.value);
+                        if (r.count > 0) {
+                            node.value = r.result;
+                            nodeCount++;
+                            charCount += r.count;
+                        }
+                    }
+                    else if (node.nodeType === Node.TEXT_NODE) {
                         var r = simplized(node.data);
-                        node.data = r.result;
-                        nodesCount++;
-                        charsCount += r.count;
+                        if (r.count > 0) {
+                            node.data = r.result;
+                            nodeCount++;
+                            charCount += r.count;
+                        }
                     } else {
-                        nodesList.unshift(Array.prototype.slice.call(node.childNodes));
+                        nodeList.unshift(Array.prototype.slice.call(node.childNodes));
                     }
                 }
-                resolve({ 'nodesCount': nodesCount, 'charsCount': charsCount });
+                resolve({ 'nodeCount': nodeCount, 'charCount': charCount });
             }
         });
     }
@@ -153,44 +195,65 @@
      * @param {Node|HTMLElement} node
      * @return {Object}
      */
-    var transDomToTraditional = function (node) {
+    var transDomToTraditional = function (domNode) {
         return new Promise(function (resolve, reject) {
-            var parent = node ? node : document;
-            if (!legalTypes.includes(parent.nodeType)) {
+            var parent = domNode ? domNode : document;
+            if (!legalTypes.some(function (type) { return parent.nodeType === type; })) {
                 throw new Error('illegal NodeType,legal NodeType:'.concat(JSON.stringify(legalTypes)));
             }
             if (parent === document) {
-                var nodesCount = 0;
-                var charsCount = 0;
+                var nodeCount = 0;
+                var charCount = 0;
                 document.querySelectorAll('*').forEach(function (ele) {
                     ele.childNodes.forEach(function (node) {
-                        if (node.nodeType == Node.TEXT_NODE && node.data.replace(/\s/g, '').length > 0) {
+                        if (['input', 'textarea'].some(function (tagName) { return node.nodeName.toLowerCase() === tagName })) {
+                            var r = traditionalized(node.value);
+                            if (r.count > 0) {
+                                node.value = r.result;
+                                nodeCount++;
+                                charCount += r.count;
+                            }
+                        }
+                        else if (node.nodeType === Node.TEXT_NODE && node.data.replace(/\s/g, '').length > 0) {
                             var r = traditionalized(node.data);
-                            node.data = r.result;
-                            nodesCount++;
-                            charsCount += r.count;
+                            if (r.count > 0) {
+                                node.data = r.result;
+                                nodeCount++;
+                                charCount += r.count;
+                            }
                         }
                     });
                 });
-                resolve({ 'nodesCount': nodesCount, 'charsCount': charsCount });
+                resolve({ 'nodeCount': nodeCount, 'charCount': charCount });
             }
             else {
-                var nodesList = Array.prototype.slice.call(parent.childNodes);
-                var nodesCount = 0;
-                var charsCount = 0;
-                while (nodesList.length) {
-                    node = nodesList.shift();
-                    if (!node._aytranslatedtraditional && node.nodeType === Node.TEXT_NODE) {
+                var nodeList = Array.prototype.slice.call(parent.childNodes);
+                nodeList.length == 0 && nodeList.push(parent);
+                var nodeCount = 0;
+                var charCount = 0;
+                var node;
+                while (nodeList.length) {
+                    node = nodeList.shift();
+                    if (['input', 'textarea'].some(function (tagName) { return node.nodeName.toLowerCase() === tagName })) {
+                        var r = traditionalized(node.value);
+                        if (r.count > 0) {
+                            node.value = r.result;
+                            nodeCount++;
+                            charCount += r.count;
+                        }
+                    }
+                    else if (node.nodeType === Node.TEXT_NODE) {
                         var r = traditionalized(node.data);
-                        node.data = r.result;
-                        node._aytranslatedtraditional = true;
-                        nodesCount++;
-                        charsCount += r.count;
+                        if (r.count > 0) {
+                            node.data = r.result;
+                            nodeCount++;
+                            charCount += r.count;
+                        }
                     } else {
-                        nodesList.unshift(Array.prototype.slice.call(node.childNodes));
+                        nodeList.unshift(Array.prototype.slice.call(node.childNodes));
                     }
                 }
-                resolve({ 'nodesCount': nodesCount, 'charsCount': charsCount });
+                resolve({ 'nodeCount': nodeCount, 'charCount': charCount });
             }
         });
     }
@@ -201,13 +264,13 @@
      */
     var autoTransalte = function () {
         return new Promise(function (resolve, reject) {
-            if (['zh-TW', 'zh-HK', 'zh-Hant', 'zh-MO'].includes(navigator.language)) {
+            if (['zh-TW', 'zh-HK', 'zh-Hant', 'zh-MO'].some(function (lang) { return navigator.language === lang; })) {
                 console.time('translate to traditional');
                 transDomToTraditional().then(function (result) {
                     console.timeEnd('translate to traditional');
                     resolve(result);
                 })
-            } else if (['zh-CN', 'zh-Hans', 'zh-SG', 'zh-MY'].includes(navigator.language)) {
+            } else if (['zh-CN', 'zh-Hans', 'zh-SG', 'zh-MY'].some(function (lang) { return navigator.language === lang; })) {
                 console.time('translate to simple');
                 transDomToSimple().then(function (result) {
                     console.timeEnd('translate to simple');

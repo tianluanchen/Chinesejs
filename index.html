@@ -1,3 +1,12 @@
+<!--
+ * @Author       :  Ayouth
+ * @Date         :  2022-03-12 GMT+0800
+ * @LastEditTime :  2022-03-12 GMT+0800
+ * @FilePath     :  index.html
+ * @Description  :  
+ * Copyright (c) 2022 by Ayouth, All Rights Reserved. 
+ * GitHub   https://github.com/tianluanchen/Chinesejs
+-->
 <!DOCTYPE html>
 <html lang="zh">
 
@@ -6,9 +15,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chinesejs测试网页 - Ayouth的开源小项目</title>
+    <link rel="shortcut icon" href="data:image/png;" type="image/x-icon">
     <style>
         :root {
-            --custom-white: rgb(215, 215, 215);
+            --custom-white: rgb(225, 225, 225);
         }
 
         * {
@@ -108,7 +118,7 @@
     <main>
         <h1><a href="https://github.com/tianluanchen/Chinesejs">Chinesejs</a> 网页测试</h1>
         <h2 class="author">作者：<a href="https://github.com/tianluanchen">Ayouth</a></h2>
-        <textarea name="" id="" rows="6">输入任意繁简体中文进行转换</textarea>
+        <textarea autocomplete="off" name="" id="" rows="6">输入任意繁简体中文进行转换</textarea>
         <button class="btn" id="trans">繁简体转换</button>
         <h2>一篇作文演示DOM内容转换</h2>
         <article>
@@ -118,7 +128,7 @@
             她，也就是我，又一次仰望着深远的天空，面对着初升的红日，大声地喊出：“成长因有梦而精彩。”
         </article>
     </main>
-    <script src="./Chinese.min.js"></script>
+    <script src="./Chinese.js"></script>
     <script>
         // 自动翻译网页至浏览器中文语言
         Chinesejs.autoTransalte();
