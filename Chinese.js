@@ -123,6 +123,9 @@
         }
 
     }
+    /**
+     * @description: 允许的DOMNode类型
+     */
     var legalTypes = [Node.DOCUMENT_NODE, Node.DOCUMENT_FRAGMENT_NODE, Node.TEXT_NODE, Node.ELEMENT_NODE];
     /**
      * @description: Dom转简体
@@ -268,12 +271,14 @@
                 console.time('translate to traditional');
                 transDomToTraditional().then(function (result) {
                     console.timeEnd('translate to traditional');
+                    result.current='traditional';
                     resolve(result);
                 })
             } else if (['zh-CN', 'zh-Hans', 'zh-SG', 'zh-MY'].some(function (lang) { return navigator.language === lang; })) {
                 console.time('translate to simple');
                 transDomToSimple().then(function (result) {
                     console.timeEnd('translate to simple');
+                    result.current='simple';
                     resolve(result);
                 })
             } else {

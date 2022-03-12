@@ -132,14 +132,16 @@
     <script src="./Chinese.min.js"></script>
     <script>
         // 自动翻译网页至浏览器中文语言
-        Chinesejs.autoTransalte();
-        var t = 1;
+        var t = 'simple';
+        Chinesejs.autoTransalte().then(function(result){
+            t=result.current;
+        });
         document.querySelector('#trans').onclick = function () {
-            if (t == 1) {
+            if (t == 'simple') {
                 Chinesejs.transDomToTraditional();
-                t = 2;
+                t = 'traditionl';
             } else {
-                t = 1;
+                t = 'simple';
                 Chinesejs.transDomToSimple();
             }
         }
