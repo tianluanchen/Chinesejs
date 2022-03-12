@@ -10,9 +10,9 @@
 ; !function (global, factory) {
     global.Chinesejs = factory();
     global.Clang = global.Chinesejs;
-    Clang.toLocaleString=function(){
-        var str="Author: Ayouth\nGitHub: https://github.com/tianluanchen/Chinesejs\n";
-        console.log(str);    
+    Clang.toLocaleString = function () {
+        var str = "Author: Ayouth\nGitHub: https://github.com/tianluanchen/Chinesejs\n";
+        console.log(str);
     };
 }(self || window, function () {
     var simpleChinese = function () {
@@ -123,27 +123,82 @@
         }
 
     }
+
     /**
      * @description: 允许的DOMNode类型
      */
     var legalTypes = [Node.DOCUMENT_NODE, Node.DOCUMENT_FRAGMENT_NODE, Node.TEXT_NODE, Node.ELEMENT_NODE];
     /**
-     * @description: Dom转简体
+    * @description: 备份翻译前的文本
+    * @param {Node} node
+    * @param {String} text
+    * @return {void}
+    */
+    function backupText(node, text) {
+        if (!node || node._ayBackupText) {
+            return;
+        }
+        node._ayBackupText = text;
+    }
+    /**
+     * @description: 恢复节点翻译前的文本
+     * @param {Node} node
+     * @return {void}
+     */
+    function restoreText(node) {
+        if (!node || !node._ayBackupText) {
+            return false;
+        }
+        if (['input', 'textarea'].some(function (tagName) { return node.nodeName && node.nodeName.toLowerCase() === tagName })) {
+            node.value = node._ayBackupText;
+        } else if (node.nodeType === Node.TEXT_NODE) {
+            node.data = node._ayBackupText;
+        }
+        else {
+            return false;
+        }
+        return true;
+    }
+    /**
+     * @description: 恢复所有被翻译的节点
+     * @param {void}
+     * @return {Promise}
+     */
+    function restore() {
+        return new Promise(function (resolve, reject) {
+            var nodeCount = 0;
+            try {
+                document.querySelectorAll('*').forEach(function (ele) {
+                    ele.childNodes.forEach(function (node) {
+                        if (restoreText(node)) {
+                            nodeCount++;
+                        }
+                    });
+                });
+                resolve({ 'nodeCount': nodeCount });
+            } catch (error) {
+                reject(new Error(error));
+            }
+        });
+    }
+    /**
+     * @description: DOM转简体
      * @param {Node|HTMLElement} node
      * @return {Object}
      */
-    var transDomToSimple = function (node) {
+    var transDOMToSimple = function (node) {
         return new Promise(function (resolve, reject) {
             var parent = node ? node : document;
             if (!legalTypes.some(function (type) { return parent.nodeType === type; })) {
                 throw new Error('illegal NodeType,legal NodeType:'.concat(JSON.stringify(legalTypes)));
             }
-            if (parent === document) {
+            if (parent.nodeType != Node.TEXT_NODE && parent.hasChildNodes()) {
                 var nodeCount = 0;
                 var charCount = 0;
                 document.querySelectorAll('*').forEach(function (ele) {
                     ele.childNodes.forEach(function (node) {
-                        if (['input', 'textarea'].some(function (tagName) { return node.nodeName.toLowerCase() === tagName })) {
+                        if (['input', 'textarea'].some(function (tagName) { return node.nodeName && node.nodeName.toLowerCase() === tagName })) {
+                            backupText(node, node.value);
                             var r = simplized(node.value);
                             if (r.count > 0) {
                                 node.value = r.result;
@@ -152,6 +207,7 @@
                             }
                         }
                         else if (node.nodeType == Node.TEXT_NODE && node.data.replace(/\s/g, '').length > 0) {
+                            backupText(node, node.data);
                             var r = simplized(node.data);
                             if (r.count > 0) {
                                 node.data = r.result;
@@ -170,8 +226,9 @@
                 var charCount = 0;
                 while (nodeList.length) {
                     node = nodeList.shift();
-                    if (['input', 'textarea'].some(function (tagName) { return node.nodeName.toLowerCase() === tagName })) {
+                    if (['input', 'textarea'].some(function (tagName) { return node.nodeName && node.nodeName.toLowerCase() === tagName })) {
                         var r = simplized(node.value);
+                        backupText(node, node.value);
                         if (r.count > 0) {
                             node.value = r.result;
                             nodeCount++;
@@ -179,6 +236,7 @@
                         }
                     }
                     else if (node.nodeType === Node.TEXT_NODE) {
+                        backupText(node, node.data);
                         var r = simplized(node.data);
                         if (r.count > 0) {
                             node.data = r.result;
@@ -194,22 +252,23 @@
         });
     }
     /**
-     * @description: Dom转繁体
+     * @description: DOM转繁体
      * @param {Node|HTMLElement} node
      * @return {Object}
      */
-    var transDomToTraditional = function (domNode) {
+    var transDOMToTraditional = function (DOMNode) {
         return new Promise(function (resolve, reject) {
-            var parent = domNode ? domNode : document;
+            var parent = DOMNode ? DOMNode : document;
             if (!legalTypes.some(function (type) { return parent.nodeType === type; })) {
                 throw new Error('illegal NodeType,legal NodeType:'.concat(JSON.stringify(legalTypes)));
             }
-            if (parent === document) {
+            if (parent.nodeType != Node.TEXT_NODE && parent.hasChildNodes()) {
                 var nodeCount = 0;
                 var charCount = 0;
-                document.querySelectorAll('*').forEach(function (ele) {
+                parent.querySelectorAll('*').forEach(function (ele) {
                     ele.childNodes.forEach(function (node) {
-                        if (['input', 'textarea'].some(function (tagName) { return node.nodeName.toLowerCase() === tagName })) {
+                        if (['input', 'textarea'].some(function (tagName) { return node.nodeName && node.nodeName.toLowerCase() === tagName })) {
+                            backupText(node, node.value);
                             var r = traditionalized(node.value);
                             if (r.count > 0) {
                                 node.value = r.result;
@@ -218,6 +277,7 @@
                             }
                         }
                         else if (node.nodeType === Node.TEXT_NODE && node.data.replace(/\s/g, '').length > 0) {
+                            backupText(node, node.data);
                             var r = traditionalized(node.data);
                             if (r.count > 0) {
                                 node.data = r.result;
@@ -237,7 +297,9 @@
                 var node;
                 while (nodeList.length) {
                     node = nodeList.shift();
-                    if (['input', 'textarea'].some(function (tagName) { return node.nodeName.toLowerCase() === tagName })) {
+                    console.log(node);
+                    if (['input', 'textarea'].some(function (tagName) { return node.nodeName && node.nodeName.toLowerCase() === tagName })) {
+                        backupText(node, node.value);
                         var r = traditionalized(node.value);
                         if (r.count > 0) {
                             node.value = r.result;
@@ -246,6 +308,7 @@
                         }
                     }
                     else if (node.nodeType === Node.TEXT_NODE) {
+                        backupText(node, node.data);
                         var r = traditionalized(node.data);
                         if (r.count > 0) {
                             node.data = r.result;
@@ -265,20 +328,20 @@
      * @param {void}
      * @return {void}
      */
-    var autoTransalte = function () {
+    var autoTranslate = function () {
         return new Promise(function (resolve, reject) {
             if (['zh-TW', 'zh-HK', 'zh-Hant', 'zh-MO'].some(function (lang) { return navigator.language === lang; })) {
                 console.time('translate to traditional');
-                transDomToTraditional().then(function (result) {
+                transDOMToTraditional().then(function (result) {
                     console.timeEnd('translate to traditional');
-                    result.current='traditional';
+                    result.current = 'traditional';
                     resolve(result);
                 })
             } else if (['zh-CN', 'zh-Hans', 'zh-SG', 'zh-MY'].some(function (lang) { return navigator.language === lang; })) {
                 console.time('translate to simple');
-                transDomToSimple().then(function (result) {
+                transDOMToSimple().then(function (result) {
                     console.timeEnd('translate to simple');
-                    result.current='simple';
+                    result.current = 'simple';
                     resolve(result);
                 })
             } else {
@@ -290,8 +353,9 @@
     Chinesejs.toSimple = toSimple;
     Chinesejs.toTraditional = toTraditional;
     Chinesejs.legalTypes = legalTypes;
-    Chinesejs.transDomToSimple = transDomToSimple;
-    Chinesejs.transDomToTraditional = transDomToTraditional;
-    Chinesejs.autoTransalte = autoTransalte;
+    Chinesejs.transDOMToSimple = transDOMToSimple;
+    Chinesejs.transDOMToTraditional = transDOMToTraditional;
+    Chinesejs.autoTranslate = autoTranslate;
+    Chinesejs.restore = restore;
     return Chinesejs;
 });
