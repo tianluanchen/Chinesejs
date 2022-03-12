@@ -41,10 +41,10 @@ Chinesejs.transDomToTraditional(document.querySelector('body')).then(function(r)
     console.log(r) 
     // Object { nodeCount: ... , charCount: ... }
 })
-//自动转换至浏览器所属的语言 自动打印出执行时间
+//自动转换至浏览器所属的语言 自动打印出执行时间 返回的current属性值为simple或traditional表示转换后的格式
 Chinesejs.autoTranslate().then(function(r){
     console.log(r) 
-    // Object { nodeCount: ... , charCount: ... }
+    // Object { nodeCount: ... , charCount: ... , current: ...}
 })
 ```
 
