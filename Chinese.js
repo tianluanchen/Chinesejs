@@ -1,9 +1,9 @@
 /*
  * @Author       :  Ayouth
  * @Date         :  2022-03-11 GMT+0800
- * @LastEditTime :  2022-03-12 GMT+0800
+ * @LastEditTime :  2022-03-18 GMT+0800
  * @FilePath     :  Chinese.js
- * @Description  :  繁简体相互转换
+ * @Description  :  繁简体相互转换组件库
  * Copyright (c) 2022 by Ayouth, All Rights Reserved. 
  * GitHub   https://github.com/tianluanchen/Chinesejs
  */
@@ -11,8 +11,7 @@
     global.Chinesejs = factory();
     global.Clang = global.Chinesejs;
     Clang.toLocaleString = function () {
-        var str = "Author: Ayouth\nGitHub: https://github.com/tianluanchen/Chinesejs\n";
-        console.log(str);
+        console.log('%cProject:Chinesejs  Author:Ayouth  GitHub:https://github.com/tianluanchen/Chinesejs', 'display:block;padding:5px;border-radius:3px;color:#f3f3f3;background-color:#4882ee;font-size:18px');
     };
 }(self || window, function () {
     var simpleChinese = function () {
@@ -135,10 +134,10 @@
     * @return {void}
     */
     function backupText(node, text) {
-        if (!node || node._ayBackupText) {
+        if (!node || node.ClangBackupText) {
             return;
         }
-        node._ayBackupText = text;
+        node.ClangBackupText = text;
     }
     /**
      * @description: 恢复节点翻译前的文本
@@ -146,13 +145,13 @@
      * @return {void}
      */
     function restoreText(node) {
-        if (!node || !node._ayBackupText) {
+        if (!node || !node.ClangBackupText) {
             return false;
         }
         if (['input', 'textarea'].some(function (tagName) { return node.nodeName && node.nodeName.toLowerCase() === tagName })) {
-            node.value = node._ayBackupText;
+            node.value = node.ClangBackupText;
         } else if (node.nodeType === Node.TEXT_NODE) {
-            node.data = node._ayBackupText;
+            node.data = node.ClangBackupText;
         }
         else {
             return false;
@@ -164,17 +163,29 @@
      * @param {void}
      * @return {Promise}
      */
-    function restore() {
+    function restore(node) {
         return new Promise(function (resolve, reject) {
+            var parent = node ? node : document;
+            if (!legalTypes.some(function (type) { return parent.nodeType === type; })) {
+                throw new Error('illegal NodeType,legal NodeType:'.concat(JSON.stringify(legalTypes)));
+            }
+            var nodeList = Array.prototype.slice.call(parent.childNodes);
+            nodeList.length == 0 && nodeList.push(parent);
             var nodeCount = 0;
             try {
-                document.querySelectorAll('*').forEach(function (ele) {
-                    ele.childNodes.forEach(function (node) {
+                while (nodeList.length > 0) {
+                    node = nodeList.shift();
+                    if (node.nodeType === Node.TEXT_NODE || ['input', 'textarea'].some(function (tagName) { return node.nodeName && node.nodeName.toLowerCase() === tagName })) {
                         if (restoreText(node)) {
                             nodeCount++;
                         }
-                    });
-                });
+                    }
+                    else {
+                        (node.childNodes || node).forEach(function (ele) {
+                            nodeList.unshift(ele);
+                        });
+                    }
+                }
                 resolve({ 'nodeCount': nodeCount });
             } catch (error) {
                 reject(new Error(error));
@@ -192,63 +203,36 @@
             if (!legalTypes.some(function (type) { return parent.nodeType === type; })) {
                 throw new Error('illegal NodeType,legal NodeType:'.concat(JSON.stringify(legalTypes)));
             }
-            if (parent.nodeType != Node.TEXT_NODE && parent.hasChildNodes()) {
-                var nodeCount = 0;
-                var charCount = 0;
-                document.querySelectorAll('*').forEach(function (ele) {
-                    ele.childNodes.forEach(function (node) {
-                        if (['input', 'textarea'].some(function (tagName) { return node.nodeName && node.nodeName.toLowerCase() === tagName })) {
-                            backupText(node, node.value);
-                            var r = simplized(node.value);
-                            if (r.count > 0) {
-                                node.value = r.result;
-                                nodeCount++;
-                                charCount += r.count;
-                            }
-                        }
-                        else if (node.nodeType == Node.TEXT_NODE && node.data.replace(/\s/g, '').length > 0) {
-                            backupText(node, node.data);
-                            var r = simplized(node.data);
-                            if (r.count > 0) {
-                                node.data = r.result;
-                                nodeCount++;
-                                charCount += r.count;
-                            }
-                        }
-                    });
-                });
-                resolve({ 'nodeCount': nodeCount, 'charCount': charCount });
-            }
-            else {
-                var nodeList = Array.prototype.slice.call(parent.childNodes);
-                nodeList.length == 0 && nodeList.push(parent);
-                var nodeCount = 0;
-                var charCount = 0;
-                while (nodeList.length) {
-                    node = nodeList.shift();
-                    if (['input', 'textarea'].some(function (tagName) { return node.nodeName && node.nodeName.toLowerCase() === tagName })) {
-                        var r = simplized(node.value);
+            var nodeList = Array.prototype.slice.call(parent.childNodes);
+            nodeList.length == 0 && nodeList.push(parent);
+            var nodeCount = 0;
+            var charCount = 0;
+            while (nodeList.length > 0) {
+                node = nodeList.shift();
+                if (['input', 'textarea'].some(function (tagName) { return node.nodeName && node.nodeName.toLowerCase() === tagName })) {
+                    var r = simplized(node.value);
+                    if (r.count > 0) {
                         backupText(node, node.value);
-                        if (r.count > 0) {
-                            node.value = r.result;
-                            nodeCount++;
-                            charCount += r.count;
-                        }
-                    }
-                    else if (node.nodeType === Node.TEXT_NODE) {
-                        backupText(node, node.data);
-                        var r = simplized(node.data);
-                        if (r.count > 0) {
-                            node.data = r.result;
-                            nodeCount++;
-                            charCount += r.count;
-                        }
-                    } else {
-                        nodeList.unshift(Array.prototype.slice.call(node.childNodes));
+                        node.value = r.result;
+                        nodeCount++;
+                        charCount += r.count;
                     }
                 }
-                resolve({ 'nodeCount': nodeCount, 'charCount': charCount });
+                else if (node.nodeType === Node.TEXT_NODE) {
+                    var r = simplized(node.data);
+                    if (r.count > 0) {
+                        backupText(node, node.data);
+                        node.data = r.result;
+                        nodeCount++;
+                        charCount += r.count;
+                    }
+                } else {
+                    (node.childNodes || node).forEach(function (ele) {
+                        nodeList.unshift(ele);
+                    })
+                }
             }
+            resolve({ 'nodeCount': nodeCount, 'charCount': charCount });
         });
     }
     /**
@@ -262,65 +246,37 @@
             if (!legalTypes.some(function (type) { return parent.nodeType === type; })) {
                 throw new Error('illegal NodeType,legal NodeType:'.concat(JSON.stringify(legalTypes)));
             }
-            if (parent.nodeType != Node.TEXT_NODE && parent.hasChildNodes()) {
-                var nodeCount = 0;
-                var charCount = 0;
-                parent.querySelectorAll('*').forEach(function (ele) {
-                    ele.childNodes.forEach(function (node) {
-                        if (['input', 'textarea'].some(function (tagName) { return node.nodeName && node.nodeName.toLowerCase() === tagName })) {
-                            backupText(node, node.value);
-                            var r = traditionalized(node.value);
-                            if (r.count > 0) {
-                                node.value = r.result;
-                                nodeCount++;
-                                charCount += r.count;
-                            }
-                        }
-                        else if (node.nodeType === Node.TEXT_NODE && node.data.replace(/\s/g, '').length > 0) {
-                            backupText(node, node.data);
-                            var r = traditionalized(node.data);
-                            if (r.count > 0) {
-                                node.data = r.result;
-                                nodeCount++;
-                                charCount += r.count;
-                            }
-                        }
-                    });
-                });
-                resolve({ 'nodeCount': nodeCount, 'charCount': charCount });
-            }
-            else {
-                var nodeList = Array.prototype.slice.call(parent.childNodes);
-                nodeList.length == 0 && nodeList.push(parent);
-                var nodeCount = 0;
-                var charCount = 0;
-                var node;
-                while (nodeList.length) {
-                    node = nodeList.shift();
-                    console.log(node);
-                    if (['input', 'textarea'].some(function (tagName) { return node.nodeName && node.nodeName.toLowerCase() === tagName })) {
+            var nodeList = Array.prototype.slice.call(parent.childNodes);
+            nodeList.length == 0 && nodeList.push(parent);
+            var nodeCount = 0;
+            var charCount = 0;
+            var node;
+            while (nodeList.length) {
+                node = nodeList.shift();
+                if (['input', 'textarea'].some(function (tagName) { return node.nodeName && node.nodeName.toLowerCase() === tagName })) {
+                    var r = traditionalized(node.value);
+                    if (r.count > 0) {
                         backupText(node, node.value);
-                        var r = traditionalized(node.value);
-                        if (r.count > 0) {
-                            node.value = r.result;
-                            nodeCount++;
-                            charCount += r.count;
-                        }
-                    }
-                    else if (node.nodeType === Node.TEXT_NODE) {
-                        backupText(node, node.data);
-                        var r = traditionalized(node.data);
-                        if (r.count > 0) {
-                            node.data = r.result;
-                            nodeCount++;
-                            charCount += r.count;
-                        }
-                    } else {
-                        nodeList.unshift(Array.prototype.slice.call(node.childNodes));
+                        node.value = r.result;
+                        nodeCount++;
+                        charCount += r.count;
                     }
                 }
-                resolve({ 'nodeCount': nodeCount, 'charCount': charCount });
+                else if (node.nodeType === Node.TEXT_NODE) {
+                    var r = traditionalized(node.data);
+                    if (r.count > 0) {
+                        backupText(node, node.data);
+                        node.data = r.result;
+                        nodeCount++;
+                        charCount += r.count;
+                    }
+                } else {
+                    (node.childNodes || node).forEach(function (ele) {
+                        nodeList.unshift(ele);
+                    });
+                }
             }
+            resolve({ 'nodeCount': nodeCount, 'charCount': charCount });
         });
     }
     /**
@@ -349,6 +305,94 @@
             }
         });
     }
+    var showWidget = function (opts = {
+        leftTime: 3200,//无操作自动hide的时间
+        text: "简",//"简" "繁" "原" "auto" 初始按钮选项 auto代表自动根据浏览器语言选择
+        translate: null,//"简" "繁" "auto" 按钮出现前翻译 未设置不翻译 auto代表自动根据浏览器语言翻译 
+        target: document.documentElement,
+        customStyle: "",//自定义仿按钮的DIV css样式
+        customHideStyle: "",//自定义隐藏的样式
+    }) {
+        var simple = null, traditionl = null;
+        if (['zh-TW', 'zh-HK', 'zh-Hant', 'zh-MO'].some(function (lang) { return navigator.language === lang; })) {
+            traditionl = true;
+        }
+        if (['zh-CN', 'zh-Hans', 'zh-SG', 'zh-MY'].some(function (lang) { return navigator.language === lang; })) {
+            simple = true;
+        }
+        var customStyle = typeof opts.customStyle == "string" ? opts.customStyle : "";
+        var customHideStyle = typeof opts.customHideStyle == "string" ? opts.customHideStyle : "";
+        var target = opts.target ? opts.target : document.documentElement;
+        var text = ["简", "繁", "原", "auto"].some(function (ele) { return ele === opts.text }) ? opts.text : "简";
+        if (text == "auto") {
+            text = "简";
+            text = traditionl ? "繁" : "简";
+        }
+        var translate = ["简", "繁", "auto"].some(function (ele) { return ele === opts.translate }) ? opts.translate : null;
+        if (translate == "auto") {
+            translate = null;
+            if (simple) {
+                translate = "简";
+            } else if (traditionl) {
+                translate = "繁";
+            }
+        }
+        var style = ".clang-menu-container { width: 48px; height: 48px; box-sizing: border-box; border-radius: 50%; background-image: linear-gradient(120deg, #2dc6d1 0%, #5386ce 100%); cursor: pointer; position: fixed; right: 32px; bottom: 32px; display: flex; align-items: center; justify-content: center; font-size: 17px; color: rgb(240, 240, 240); box-shadow: 0 0 4px 0 rgba(102, 146, 241, 0.3); user-select: none; transition: 0.25s ease-in-out; } .clang-menu-hide { right: -32px; }";
+        var s = document.createElement('style');
+        s.innerHTML = style;
+        document.head.appendChild(s);
+        var btn = document.createElement('div');
+        btn.className = "clang-menu-container";
+        btn.style = btn.customStyle = customStyle;
+        btn.customHideStyle = customHideStyle;
+        btn.translateFunc = {
+            "简": function () {
+                Chinesejs.transDOMToSimple(target)
+            },
+            "繁": function () {
+                Chinesejs.transDOMToTraditional(target);
+            },
+            "原": function () {
+                Chinesejs.restore(target);
+            }
+        }
+        btn.textIndex = Object.keys(btn.translateFunc).indexOf(text);
+        btn.textContent = text;
+        btn.currentKey = text;
+        btn.leftTime = typeof opts.leftTime == "number" ? opts.leftTime : 3200;
+        btn.addEventListener('click', function (event) {
+            var ele = event.target;
+            ele.textIndex = (ele.textIndex + 1) % Object.keys(ele.translateFunc).length;
+            ele.translateFunc[ele.currentKey]();
+            ele.textContent = ele.currentKey = Object.keys(ele.translateFunc)[ele.textIndex];
+            if (ele.timeoutID != undefined) {
+                clearTimeout(ele.timeoutID);
+            }
+        });
+        btn.addEventListener('mouseenter', function (event) {
+            event.target.classList.toggle('clang-menu-hide', false);
+            event.target.style = event.target.customStyle;
+            if (event.target.timeoutID != undefined) {
+                clearTimeout(event.target.timeoutID);
+            }
+        });
+        function autoHide() {
+            var btn = document.querySelector('.clang-menu-container');
+            if (!btn) {
+                return;
+            }
+            btn.timeoutID = setTimeout(function () {
+                var btn = document.querySelector('.clang-menu-container');
+                if (btn) {
+                    btn.classList.toggle('clang-menu-hide', true);
+                    btn.style = btn.customHideStyle;
+                }
+            }, btn.leftTime);
+        }
+        btn.translateFunc[translate] ? btn.translateFunc[translate]() : false;
+        document.body ? document.body.appendChild(btn) : document.documentElement.appendChild(btn);
+        btn.addEventListener('mouseleave', (autoHide(), autoHide));
+    }
     var Chinesejs = new Object();
     Chinesejs.toSimple = toSimple;
     Chinesejs.toTraditional = toTraditional;
@@ -357,5 +401,6 @@
     Chinesejs.transDOMToTraditional = transDOMToTraditional;
     Chinesejs.autoTranslate = autoTranslate;
     Chinesejs.restore = restore;
+    Chinesejs.showWidget = showWidget;
     return Chinesejs;
 });

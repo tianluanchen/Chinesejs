@@ -68,6 +68,16 @@ Chinesejs.autoTranslate().then(function(r){
     console.log(r) 
     // Object { nodeCount: ... , charCount: ... , current: ...}
 })
+
+//自带的widget 
+Chinesejs.showWidget({
+    leftTime: 3200,//无操作自动hide的时间
+    text: "简",//"简" "繁" "原" "auto" 初始按钮选项 auto代表自动根据浏览器语言选择
+    translate: null,//"简" "繁" "auto" 按钮出现前翻译 未设置不翻译 auto代表自动根据浏览器语言翻译 
+    target: document.documentElement,
+    customStyle: "",//自定义仿按钮的DIV css样式
+    customHideStyle: "",//自定义隐藏的样式
+});
 ```
 
 ## License
