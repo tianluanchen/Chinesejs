@@ -1,7 +1,7 @@
 /*
  * @Author       :  Ayouth
  * @Date         :  2022-03-11 GMT+0800
- * @LastEditTime :  2022-04-09 GMT+0800
+ * @LastEditTime :  2022-04-17 GMT+0800
  * @FilePath     :  Chinese.js
  * @Description  :  繁简体相互转换组件库
  * Copyright (c) 2022 by Ayouth, All Rights Reserved. 
@@ -321,6 +321,7 @@
         target: document.documentElement,// 目标节点 默认为整个网页
         customStyle: "",//自定义仿按钮的DIV css样式
         customHideStyle: "",//自定义隐藏的样式
+        callback: function (e) { } //翻译后的回调函数 参数为Object { nodeCount: ... , charCount: ... , current: ...}
     }) {
         var simple = null, traditionl = null;
         if (['zh-TW', 'zh-HK', 'zh-Hant', 'zh-MO'].includes(navigator.language)) {
@@ -346,7 +347,7 @@
                 translate = "繁";
             }
         }
-        var style = ".clang-menu-container { width: 48px; height: 48px; box-sizing: border-box; border-radius: 50%; background-image: linear-gradient(120deg, #2dc6d1 0%, #5386ce 100%); cursor: pointer; position: fixed; right: 32px; bottom: 32px; display: flex; align-items: center; justify-content: center; font-size: 17px; color: rgb(240, 240, 240); box-shadow: 0 0 4px 0 rgba(102, 146, 241, 0.3); user-select: none; transition: 0.25s ease-in-out; } .clang-menu-hide { right: -32px; }";
+        var style = ".clang-menu-container {z-index:2022; width: 48px; height: 48px; box-sizing: border-box; border-radius: 50%; background-image: linear-gradient(120deg, #2dc6d1 0%, #5386ce 100%); cursor: pointer; position: fixed; right: 32px; bottom: 32px; display: flex; align-items: center; justify-content: center; font-size: 17px; color: rgb(240, 240, 240); box-shadow: 0 0 4px 0 rgba(102, 146, 241, 0.3); user-select: none; transition: 0.25s ease-in-out; } .clang-menu-hide { right: -32px; }";
         var s = document.createElement('style');
         s.innerHTML = style;
         document.head.appendChild(s);
@@ -354,15 +355,25 @@
         btn.className = "clang-menu-container";
         btn.style = btn.customStyle = customStyle;
         btn.customHideStyle = customHideStyle;
+        var callback = opts.callback ? opts.callback : function () { };
         btn.translateFunc = {
             "简": function () {
-                Chinesejs.transDOMToSimple(target)
+                Chinesejs.transDOMToSimple(target).then((e) => {
+                    e.current = 'simple';
+                    callback(e);
+                })
             },
             "繁": function () {
-                Chinesejs.transDOMToTraditional(target);
+                Chinesejs.transDOMToTraditional(target).then((e) => {
+                    e.current = 'traditional';
+                    callback(e);
+                });
             },
             "原": function () {
-                Chinesejs.restore(target);
+                Chinesejs.restore(target).then((e)=>{
+                    e.current = 'original';
+                    callback(e);
+                });
             }
         }
         btn.textIndex = Object.keys(btn.translateFunc).indexOf(text);

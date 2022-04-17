@@ -77,6 +77,8 @@ Clang.showWidget({
     target: document.documentElement,// 目标节点 默认为整个网页
     customStyle: "",//自定义仿按钮的DIV css样式
     customHideStyle: "",//自定义隐藏的样式
+    callback: function (e) { } //翻译后的回调函数 参数为Object { nodeCount: ... ,charCount:... , current: ...}
+
 });
 ```
 
