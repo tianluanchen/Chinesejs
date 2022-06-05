@@ -2,7 +2,7 @@
 
 ![https://github.com/tianluanchen/Chinesejs/blob/main/LICENSE](https://img.shields.io/github/license/tianluanchen/Chinesejs?style=flat-square)
 
-网页繁简体转换JavaScript小组件
+简单的网页繁简体转换工具，通过TypeScript编写，具有详细的声明文档。
 
 ## 介绍
 
@@ -12,74 +12,66 @@
 ## 使用
 
 ```javascript
-//导入Chinese.js后
+// commonjs 使用
+const { translate, Character } = require('./lib/Chinese');
+const { result, count } = translate('一些要转换的文本', Character.Traditional);
+console.log(
+    `转换结果：${result};转换字符数：${count}`
+);
 
-//直接转换
-//转繁体
-console.log(Chinesejs.toTraditional('Ayouth的繁简体转换JS小组件'));
-//Ayouth的繁簡體轉換JS小組件
+```
+```html
+<!-- 浏览器中使用 -->
+<!-- es6模块使用 -->
+<script type="module">
+    import { autoTranslate } from './dist/Chinesejs.esm.js';
+    autoTranslate().then((result)=>{
+        console.log("自动翻译为：",result.current)
+    })
+</script>
+<!-- 引入使用 -->
+<script src="./dist/Chinesejs.min.js"></script>
+<script>
+    // 翻译document节点 为繁体
+    Clang.translateDOM(document,Clanng.Character.Traditional).then((result)=>{
+        console.log('受影响的节点',result.nodeCount,'更改的字符数',result.charCount)
+    })
+</script>
+```
+```typescript
+// 核心API
+// 繁简体的枚举，用作其它函数的翻译字符参数
+declare enum Character {
+    Simple = 0,
+    Traditional = 1
+}
+// 直接翻译文本至指定字符返回obj
+declare function translate(words: string, target: Character): TranslateResult;
 
-//可用别名 Clang
-console.log(Clang.toTraditional('Ayouth的繁简体转换JS小组件'));
-//Ayouth的繁簡體轉換JS小組件
+// 翻译文本至指定字符返回promise
+declare function transTo(words: string, target: Character): Promise<TranslateResult>;
 
-//转简体 参数2为true 返回Object含有转换的字符数
-console.log(Clang.toSimple('Ayouth的繁簡體轉換JS小組件',true));
-//Object { result: "Ayouth的繁简体转换JS小组件", count: 5 }
+// 翻译dom返回promise
+declare function translateDOM(dom: Node, target: Character): Promise<TranslateDOMRecord>;
 
-//Promise 参数3为true
-Clang.toTraditional('Ayouth的繁简体转换JS小组件',false,true).then(function(r){
-    console.log(r); 
-    //Ayouth的繁簡體轉換JS小組件
-});
+// 还原dom返回promise
+declare function restoreDOM(dom?: Node): Promise<number>;
 
-/*
-    网页转换
-    参数可以为空，则翻译整个网页
-    参数类型要求为 [Node.DOCUMENT_NODE, Node.DOCUMENT_FRAGMENT_NODE, Node.TEXT_NODE,Node.ELEMENT_NODE]
-*/
+// 自动翻译整个网页至浏览器环境
+declare function autoTranslate(output?: boolean): Promise<AutoTransRecord>;
+// 启用右下方的小按钮控制
+declare function enableLittleMenu({ leftTime, text, translate, target, customStyle, customHideStyle, callback }: {
+    leftTime: number; // 停留时间
+    text: string; // 按钮初始显示的内容 "auto" "繁","简","原"
+    translate: string;// 按钮出现前进行翻译 "auto" "繁","简","原"
+    target: Node; // 目标
+    customStyle: string; // 自定义div按钮的样式
+    customHideStyle: string; // 自定义按钮隐藏的样式
+    callback: Function; // 按钮被点击后执行翻译的回调
+}): void;
 
-//DOM转简体  返回修改的字符数和获取的TextNode数
-Clang.transDOMToSimple().then(function(r){
-    console.log(r) 
-    // Object { nodeCount: ... , charCount: ... }
-})
-
-//DOM转繁体 有参数 返回修改的字符数和获取的TextNode数
-Clang.transDOMToTraditional(document.querySelector('body')).then(function(r){
-    console.log(r) 
-    // Object { nodeCount: ... , charCount: ... }
-})
-
-//DOM转简体  返回修改的字符数和获取的TextNode数
-Clang.transDOMToSimple().then(function(r){
-    console.log(r) 
-    // Object { nodeCount: ... , charCount: ... }
-})
-
-//恢复所有被翻译的DOM  返回成功恢复的节点数量
-Clang.restore().then(function(r){
-    console.log(r) 
-    // Object { nodeCount: ...} 
-});
-
-//自动转换至浏览器所属的语言 自动打印出执行时间 返回的current属性值为simple或traditional表示转换后的格式
-Clang.autoTranslate().then(function(r){
-    console.log(r) 
-    // Object { nodeCount: ... , charCount: ... , current: ...}
-})
-
-//自带的widget 
-Clang.showWidget({
-    leftTime: 3200,//无操作自动hide的时间
-    text: "简",//"简" "繁" "原" "auto" 初始按钮选项 auto代表自动根据浏览器语言选择
-    translate: null,//"简" "繁" "auto" 按钮出现前翻译 未设置不翻译 auto代表自动根据浏览器语言翻译 
-    target: document.documentElement,// 目标节点 默认为整个网页
-    customStyle: "",//自定义仿按钮的DIV css样式
-    customHideStyle: "",//自定义隐藏的样式
-    callback: function (e) { } //翻译后的回调函数 参数为Object { nodeCount: ... ,charCount:... , current: ...}
-
-});
+// 所有API
+export { translateDOM, restoreDOM, translate, transTo, Character, SIMPLE, TRADITIONAL, autoTranslate, enableLittleMenu };
 ```
 
 ## License
