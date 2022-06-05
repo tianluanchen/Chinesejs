@@ -6,7 +6,8 @@
 
 ## 介绍
 
-一个网页繁简体转换JavaScript小组件
+简单的网页繁简体转换工具，提供TypeScript和JavaScript的包，也可以直接引用到浏览器中，支持es模块使用。
+
 [在线演示](https://tianluanchen.github.io/Chinesejs/)
 
 ## 使用
