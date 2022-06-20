@@ -9,10 +9,11 @@ interface AutoTransRecord extends TranslateDOMRecord {
     current: string;
 }
 /**
- * @description: 根据环境自动翻译网页
+ * @description: 根据环境自动翻译
+ * @param {HTMLHtmlElement} dom 目标
  * @param {boolean} output 是否输出执行时长
  */
-export declare function autoTranslate(output?: boolean): Promise<AutoTransRecord>;
+export declare function autoTranslate(dom?: Node, output?: boolean): Promise<AutoTransRecord>;
 export declare function enableLittleMenu({ leftTime, text, translate, target, customStyle, customHideStyle, callback }: {
     leftTime: number;
     text: string;

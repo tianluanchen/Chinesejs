@@ -191,18 +191,19 @@ function translateDOM(dom, target) {
 }
 
 /**
- * @description: 根据环境自动翻译网页
+ * @description: 根据环境自动翻译
+ * @param {HTMLHtmlElement} dom 目标
  * @param {boolean} output 是否输出执行时长
  */
-function autoTranslate(output = false) {
+function autoTranslate(dom = document, output = false) {
     if (output) {
         console.time('auto-translate');
     }
     return new Promise(function (resolve, reject) {
-        let current = SIMPLE ? "simple" : TRADITIONAL ? "traditional" : "";
+        let current = SIMPLE ? "简" : TRADITIONAL ? "繁" : "";
         let target = SIMPLE ? Character.Simple : TRADITIONAL ? Character.Traditional : undefined;
         if (current != "" && target != undefined) {
-            translateDOM(document, target).then((result) => {
+            translateDOM(dom, target).then((result) => {
                 if (output) {
                     console.timeEnd('auto-translate');
                 }
@@ -231,7 +232,8 @@ function enableLittleMenu({ leftTime = 3000, text = "简", translate = undefined
         else {
             if (translate != "原") {
                 translateDOM(target, targetObj[translate]).then((result) => {
-                    callback ? callback(result) : false;
+                    result.current = translate;
+                    callback && callback(result);
                 });
             }
         }
@@ -252,10 +254,19 @@ function enableLittleMenu({ leftTime = 3000, text = "简", translate = undefined
      */
     function trans() {
         if (index === 2) {
-            restoreDOM(target);
+            restoreDOM(target).then(count => {
+                let result = {
+                    current: "原",
+                    charCount: undefined,
+                    nodeCount: count,
+                };
+                callback && callback(result);
+            });
         }
         else {
-            translateDOM(target, targetObj[textArr[index]]).then((result) => {
+            let text = textArr[index];
+            translateDOM(target, targetObj[text]).then((result) => {
+                result.current = text;
                 callback && callback(result);
             });
         }

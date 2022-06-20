@@ -58,8 +58,8 @@ declare function translateDOM(dom: Node, target: Character): Promise<TranslateDO
 // 还原dom返回promise
 declare function restoreDOM(dom?: Node): Promise<number>;
 
-// 自动翻译整个网页至浏览器环境
-declare function autoTranslate(output?: boolean): Promise<AutoTransRecord>;
+// 自动翻译指定DOM，默认整个网页，至浏览器环境，output代表是否输出耗时统计
+export declare function autoTranslate(dom?: Node, output?: boolean): Promise<AutoTransRecord>;
 // 启用右下方的小按钮控制
 declare function enableLittleMenu({ leftTime, text, translate, target, customStyle, customHideStyle, callback }: {
     leftTime: number; // 停留时间
@@ -68,7 +68,7 @@ declare function enableLittleMenu({ leftTime, text, translate, target, customSty
     target: Node; // 目标
     customStyle: string; // 自定义div按钮的样式
     customHideStyle: string; // 自定义按钮隐藏的样式
-    callback: Function; // 按钮被点击后执行翻译的回调
+    callback: Function; // 按钮被点击后执行翻译的回调 回调参数为 Object { current,nodeCount,charCount }
 }): void;
 
 // 所有API
